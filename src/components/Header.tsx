@@ -15,18 +15,18 @@ export default function Header() {
   ]
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-dark-surface/85 backdrop-blur-xl border-b border-border-light dark:border-dark-border transition-colors duration-300">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-border-light transition-colors duration-300">
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
             <svg fill="none" height="28" viewBox="0 0 24 24" width="28" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="7" cy="7" r="3" stroke="#1A2830" className="dark:stroke-white" strokeWidth="2"></circle>
+              <circle cx="7" cy="7" r="3" stroke="currentColor" className="text-text-primary" strokeWidth="2"></circle>
               <circle cx="17" cy="17" r="3" stroke="#1D9E75" strokeWidth="2"></circle>
               <path d="M10 10L14 14" stroke="#00694C" strokeLinecap="round" strokeWidth="2"></path>
             </svg>
             <span className="font-heading font-bold text-xl">
-              <span className="text-text-primary dark:text-dark-text-primary">Mico</span>
+              <span className="text-text-primary">Mico</span>
               <span className="text-accent-dark">Pay</span>
             </span>
           </a>
@@ -37,7 +37,7 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-text-secondary dark:text-dark-text-secondary hover:text-primary dark:hover:text-accent transition-colors"
+                className="text-sm font-medium text-text-secondary hover:text-primary transition-colors"
               >
                 {link.label}
               </a>
@@ -49,10 +49,10 @@ export default function Header() {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2.5 rounded-full border border-border dark:border-dark-border hover:border-primary dark:hover:border-accent transition-all"
+              className="p-2.5 rounded-full border border-border hover:border-primary transition-all"
               aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
             >
-              <span className="material-symbols-outlined text-text-primary dark:text-dark-text-primary text-lg">
+              <span className="material-symbols-outlined text-text-primary text-lg">
                 {theme === 'light' ? 'dark_mode' : 'light_mode'}
               </span>
             </button>
@@ -60,7 +60,7 @@ export default function Header() {
             {/* Language Toggle */}
             <button
               onClick={toggleLang}
-              className="px-3 py-1.5 text-xs font-bold uppercase rounded-full border border-border dark:border-dark-border hover:border-primary dark:hover:border-accent hover:text-primary dark:hover:text-accent transition-colors"
+              className="px-3 py-1.5 text-xs font-bold uppercase rounded-full border border-border hover:border-primary hover:text-primary transition-colors"
             >
               {lang === 'es' ? 'EN' : 'ES'}
             </button>
@@ -76,10 +76,10 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-surface-container dark:hover:bg-dark-surface-container transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors"
               aria-label="Menu"
             >
-              <span className="material-symbols-outlined text-text-primary dark:text-dark-text-primary">
+              <span className="material-symbols-outlined text-text-primary">
                 {mobileMenuOpen ? 'close' : 'menu'}
               </span>
             </button>
@@ -88,14 +88,14 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border-light dark:border-dark-border">
+          <div className="md:hidden py-4 border-t border-border-light">
             <nav className="flex flex-col gap-2">
               {navLinks.map(link => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-4 py-3 text-sm font-medium text-text-secondary dark:text-dark-text-secondary hover:text-primary dark:hover:text-accent hover:bg-surface-container dark:hover:bg-dark-surface-container rounded-xl transition-colors"
+                  className="px-4 py-3 text-sm font-medium text-text-secondary hover:text-primary hover:bg-surface-container rounded-xl transition-colors"
                 >
                   {link.label}
                 </a>

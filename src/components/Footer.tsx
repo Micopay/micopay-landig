@@ -15,7 +15,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-text-primary dark:bg-[#060D14] text-white transition-colors duration-300">
+    <footer className="bg-text-primary text-white transition-colors duration-300">
       <div className="container-custom py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           <div className="lg:col-span-2">
