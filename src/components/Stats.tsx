@@ -11,7 +11,7 @@ export default function Stats() {
   const { t } = useI18n()
 
   return (
-    <section className="py-16 bg-primary">
+    <section className="py-16 bg-primary dark:bg-accent-dark transition-colors duration-300">
       <div className="container-custom">
         <h2 className="text-2xl md:text-3xl font-heading font-bold text-white text-center mb-12">
           {t.stats.title}

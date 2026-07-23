@@ -15,10 +15,9 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-text-primary text-white">
+    <footer className="bg-text-primary dark:bg-[#060D14] text-white transition-colors duration-300">
       <div className="container-custom py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
-          {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <svg fill="none" height="28" viewBox="0 0 24 24" width="28" xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +34,6 @@ export default function Footer() {
               {t.footer.description}
             </p>
             
-            {/* App download badges */}
             <div className="flex gap-3">
               <button className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-xl hover:bg-white/20 transition-colors">
                 <span className="material-symbols-outlined">phone_iphone</span>
@@ -54,7 +52,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links */}
           <div>
             <h4 className="font-heading font-bold mb-4">{t.footer.links.product}</h4>
             <ul className="space-y-3">
@@ -95,7 +92,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Newsletter */}
         <div className="py-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
@@ -129,7 +125,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Copyright */}
         <div className="pt-8 border-t border-white/10 text-center text-white/50 text-sm">
           {t.footer.copyright}
         </div>

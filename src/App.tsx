@@ -1,4 +1,5 @@
 import { I18nProvider } from './i18n'
+import { ThemeProvider } from './contexts/ThemeContext'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import HowItWorks from './components/HowItWorks'
@@ -11,21 +12,23 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <I18nProvider>
-      <div className="min-h-screen bg-background">
-        <Header />
-        <main>
-          <Hero />
-          <HowItWorks />
-          <FeaturedMerchants />
-          <TrustSecurity />
-          <Stats />
-          <MerchantCTA />
-          <FAQ />
-        </main>
-        <Footer />
-      </div>
-    </I18nProvider>
+    <ThemeProvider>
+      <I18nProvider>
+        <div className="min-h-screen bg-background">
+          <Header />
+          <main>
+            <Hero />
+            <HowItWorks />
+            <FeaturedMerchants />
+            <TrustSecurity />
+            <Stats />
+            <MerchantCTA />
+            <FAQ />
+          </main>
+          <Footer />
+        </div>
+      </I18nProvider>
+    </ThemeProvider>
   )
 }
 

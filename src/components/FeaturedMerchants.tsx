@@ -9,9 +9,9 @@ const mockMerchants = [
 ]
 
 const tierColors: Record<string, string> = {
-  'Maestro': 'bg-primary text-white',
+  'Maestro': 'bg-primary dark:bg-accent-dark text-white',
   'Avanzado': 'bg-accent-dark text-white',
-  'Inicial': 'bg-surface-container-high text-text-secondary',
+  'Inicial': 'bg-surface-container-high dark:bg-dark-surface-container-high text-text-secondary dark:text-dark-text-secondary',
 }
 
 export default function FeaturedMerchants() {
@@ -36,15 +36,14 @@ export default function FeaturedMerchants() {
     <section id="proveedores" className="section-padding">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-text-primary mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-text-primary dark:text-dark-text-primary mb-4">
             {t.merchants.title}
           </h2>
-          <p className="text-lg text-text-secondary">
+          <p className="text-lg text-text-secondary dark:text-dark-text-secondary">
             {t.merchants.subtitle}
           </p>
         </div>
 
-        {/* Filters */}
         <div className="flex flex-wrap justify-center gap-3 mb-10">
           {filters.map(filter => (
             <button
@@ -52,8 +51,8 @@ export default function FeaturedMerchants() {
               onClick={() => setActiveFilter(filter.key)}
               className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${
                 activeFilter === filter.key
-                  ? 'bg-primary text-white shadow-md shadow-primary/20'
-                  : 'bg-surface text-text-secondary hover:bg-surface-container'
+                  ? 'bg-primary dark:bg-accent-dark text-white shadow-md shadow-primary/20'
+                  : 'bg-surface dark:bg-dark-surface text-text-secondary dark:text-dark-text-secondary hover:bg-surface-container dark:hover:bg-dark-surface-container border border-border dark:border-dark-border'
               }`}
             >
               {filter.label}
@@ -61,61 +60,55 @@ export default function FeaturedMerchants() {
           ))}
         </div>
 
-        {/* Merchants Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredMerchants.map(merchant => (
             <div
               key={merchant.id}
-              className="bg-white rounded-3xl p-6 border border-border-light hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="bg-white dark:bg-dark-surface rounded-3xl p-6 border border-border-light dark:border-dark-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
-              {/* Header */}
               <div className="flex items-start justify-between mb-4">
-                <div className="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center">
-                  <span className="material-symbols-outlined text-primary">
+                <div className="w-12 h-12 bg-primary-light dark:bg-primary/20 rounded-xl flex items-center justify-center">
+                  <span className="material-symbols-outlined text-primary dark:text-accent">
                     {merchant.isBusiness ? 'storefront' : 'person'}
                   </span>
                 </div>
-                <span className={`px-3 py-1 text-xs font-bold rounded-full ${tierColors[merchant.tier] || 'bg-surface-container-high text-text-secondary'}`}>
+                <span className={`px-3 py-1 text-xs font-bold rounded-full ${tierColors[merchant.tier] || 'bg-surface-container-high dark:bg-dark-surface-container-high text-text-secondary dark:text-dark-text-secondary'}`}>
                   {merchant.tier}
                 </span>
               </div>
 
-              {/* Name & Distance */}
-              <h3 className="font-heading font-bold text-text-primary mb-2 truncate">
+              <h3 className="font-heading font-bold text-text-primary dark:text-dark-text-primary mb-2 truncate">
                 {merchant.name}
               </h3>
-              <div className="flex items-center gap-2 text-sm text-text-secondary mb-4">
+              <div className="flex items-center gap-2 text-sm text-text-secondary dark:text-dark-text-secondary mb-4">
                 <span className="material-symbols-outlined text-sm">location_on</span>
                 <span>{merchant.distance} · {merchant.walkMin} {t.merchants.card.min}</span>
               </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-2 gap-4 mb-6 py-4 border-y border-border-light">
+              <div className="grid grid-cols-2 gap-4 mb-6 py-4 border-y border-border-light dark:border-dark-border">
                 <div>
-                  <p className="text-xs text-text-muted uppercase tracking-wider mb-1">{t.merchants.card.rate}</p>
-                  <p className="font-bold text-text-primary">{merchant.rate}%</p>
+                  <p className="text-xs text-text-muted dark:text-dark-text-muted uppercase tracking-wider mb-1">{t.merchants.card.rate}</p>
+                  <p className="font-bold text-text-primary dark:text-dark-text-primary">{merchant.rate}%</p>
                 </div>
                 <div>
-                  <p className="text-xs text-text-muted uppercase tracking-wider mb-1">{t.merchants.card.completion}</p>
-                  <p className="font-bold text-text-primary">{merchant.completion}%</p>
+                  <p className="text-xs text-text-muted dark:text-dark-text-muted uppercase tracking-wider mb-1">{t.merchants.card.completion}</p>
+                  <p className="font-bold text-text-primary dark:text-dark-text-primary">{merchant.completion}%</p>
                 </div>
               </div>
 
-              {/* Trades */}
               <div className="flex items-center justify-between mb-4">
-                <span className="text-sm text-text-secondary">
+                <span className="text-sm text-text-secondary dark:text-dark-text-secondary">
                   {merchant.trades} ops
                 </span>
                 {merchant.rate <= 2.1 && (
-                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-accent/10 text-accent-dark text-xs font-bold rounded-lg">
+                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-accent/10 dark:bg-accent/20 text-accent-dark text-xs font-bold rounded-lg">
                     <span className="material-symbols-outlined text-sm">star</span>
                     {t.merchants.bestRate}
                   </span>
                 )}
               </div>
 
-              {/* CTA */}
-              <button className="w-full py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-colors">
+              <button className="w-full py-3 border-2 border-primary dark:border-accent text-primary dark:text-accent font-bold rounded-xl hover:bg-primary hover:text-white dark:hover:bg-accent-dark dark:hover:text-white transition-colors">
                 {t.merchants.card.viewOffer}
               </button>
             </div>
