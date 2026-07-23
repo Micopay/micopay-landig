@@ -1,0 +1,141 @@
+{
+  "nav": {
+    "home": "Home",
+    "howItWorks": "How it works",
+    "merchants": "Providers",
+    "trust": "Security",
+    "faq": "FAQ",
+    "forMerchants": "For providers"
+  },
+  "hero": {
+    "title": "Your money, near you",
+    "subtitle": "Find cash providers near you. Convert USDC to Mexican pesos securely, no banks required.",
+    "cta": "Find providers",
+    "merchants": "+500 active providers in CDMX"
+  },
+  "howItWorks": {
+    "title": "It's that simple",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Search",
+        "description": "Find nearby providers with the best rates"
+      },
+      {
+        "number": "02",
+        "title": "Choose",
+        "description": "Compare rates, reviews, and availability"
+      },
+      {
+        "number": "03",
+        "title": "Get cash",
+        "description": "Go to the provider, show your QR, and receive your cash"
+      }
+    ]
+  },
+  "merchants": {
+    "title": "Featured providers",
+    "subtitle": "The best providers near you",
+    "filters": {
+      "all": "All",
+      "nearby": "Nearby",
+      "bestRate": "Best rate",
+      "topRated": "Top rated"
+    },
+    "card": {
+      "distance": "distance",
+      "min": "min",
+      "rate": "rate",
+      "completion": "completed",
+      "viewOffer": "View offer"
+    },
+    "bestRate": "Best rate"
+  },
+  "trust": {
+    "title": "Your money is protected",
+    "subtitle": "Escrow guaranteed by smart contracts on Stellar",
+    "features": [
+      {
+        "title": "Secure escrow",
+        "description": "The provider only receives USDC after giving you cash"
+      },
+      {
+        "title": "No banks needed",
+        "description": "No bank account or ID required"
+      },
+      {
+        "title": "On-chain verification",
+        "description": "All transactions are verifiable on Stellar"
+      }
+    ]
+  },
+  "stats": {
+    "title": "Trust is measured",
+    "merchants": "Providers",
+    "transactions": "Transactions",
+    "cities": "Cities",
+    "users": "Active users"
+  },
+  "merchantCTA": {
+    "title": "Want to be a provider?",
+    "subtitle": "Join over 500 providers across Mexico",
+    "benefits": [
+      "Earn commission on every transaction",
+      "Flexible schedule, you decide when to work",
+      "No bank needed, just cash",
+      "Instant payments via Stellar"
+    ],
+    "cta": "Sign up now",
+    "calculator": {
+      "title": "Calculate your earnings",
+      "label": "Monthly transactions",
+      "average": "Average per transaction",
+      "result": "Estimated earnings"
+    }
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "questions": [
+      {
+        "q": "How does escrow work?",
+        "a": "When you start a transaction, your USDC is locked in a smart contract. The provider only receives the USDC after you confirm you received your cash. If something goes wrong, you get a full refund."
+      },
+      {
+        "q": "What are the fees?",
+        "a": "Fees vary between providers, typically 1-3%. MicoPay charges a small 0.5% platform fee."
+      },
+      {
+        "q": "Do I need a bank account?",
+        "a": "No. MicoPay is designed for people without bank access. You only need a crypto wallet (the app helps you create one)."
+      },
+      {
+        "q": "Is it safe?",
+        "a": "Yes. The escrow guarantees your money is protected. Providers have verified on-chain reputation and are regulated."
+      },
+      {
+        "q": "What is USDC?",
+        "a": "USDC is a stablecoin tied to the dollar. 1 USDC = 1 USD. It's the currency we use for transactions."
+      },
+      {
+        "q": "Can I use this for remittances?",
+        "a": "Yes! Send USDC from anywhere in the world and your family can withdraw cash in Mexico without high Western Union fees."
+      }
+    ]
+  },
+  "footer": {
+    "description": "Your money, near you. Convert USDC to Mexican pesos securely.",
+    "links": {
+      "product": "Product",
+      "company": "Company",
+      "legal": "Legal"
+    },
+    "product": ["How it works", "Providers", "Pricing", "API"],
+    "company": ["About", "Blog", "Careers", "Contact"],
+    "legal": ["Terms", "Privacy", "Cookies"],
+    "newsletter": "Subscribe for updates",
+    "emailPlaceholder": "your@email.com",
+    "subscribe": "Subscribe",
+    "copyright": "© 2024 MicoPay. All rights reserved.",
+    "download": "Download the app"
+  }
+}

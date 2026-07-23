@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00694C;
+  --color-primary-light: #E1F5EE;
+  --color-primary-container: #C8E6C9;
+  --color-on-primary: #FFFFFF;
+  --color-on-primary-container: #002114;
+  
+  --color-accent: #5DCAA5;
+  --color-accent-dark: #1D9E75;
+  
+  --color-background: #F4FAFF;
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #FFFFFF;
+  --color-surface-container-low: #F7F3F1;
+  --color-surface-container: #F1EDEB;
+  --color-surface-container-high: #EDE8E5;
+  
+  --color-text-primary: #0B1E26;
+  --color-text-secondary: #67808C;
+  --color-text-muted: #8FA3AD;
+  --color-text-outline: #74777F;
+  
+  --color-border: #E7E2DF;
+  --color-border-light: #F1EDEB;
+  
+  --color-success: #5DCAA5;
+  --color-warning: #F5A623;
+  --color-error: #E53935;
+  
+  --font-heading: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Manrope", sans-serif;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+  }
+}
+
+@layer utilities {
+  .container-custom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .section-padding {
+    padding: 80px 0;
+  }
+  
+  @media (max-width: 768px) {
+    .section-padding {
+      padding: 48px 0;
+    }
+  }
+}

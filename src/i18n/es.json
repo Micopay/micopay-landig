@@ -1,0 +1,141 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "howItWorks": "Cómo funciona",
+    "merchants": "Proveedores",
+    "trust": "Seguridad",
+    "faq": "Preguntas frecuentes",
+    "forMerchants": "Para proveedores"
+  },
+  "hero": {
+    "title": "Tu dinero, cerca de ti",
+    "subtitle": "Encuentra proveedores de efectivo cerca de ti. Convierte USDC a pesos mexicanos de forma segura, sin bancos.",
+    "cta": "Buscar proveedores",
+    "merchants": "+500 proveedores activos en CDMX"
+  },
+  "howItWorks": {
+    "title": "Así de simple",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Busca",
+        "description": "Encuentra proveedores cercanos con las mejores tarifas"
+      },
+      {
+        "number": "02",
+        "title": "Elige",
+        "description": "Compara tarifas, reseñas y disponibilidad"
+      },
+      {
+        "number": "03",
+        "title": "Cobra",
+        "description": "Ve al proveedor, muestra tu QR y recibe tu efectivo"
+      }
+    ]
+  },
+  "merchants": {
+    "title": "Proveedores destacados",
+    "subtitle": "Los mejores proveedores cerca de ti",
+    "filters": {
+      "all": "Todos",
+      "nearby": "Cercanos",
+      "bestRate": "Mejor tarifa",
+      "topRated": "Mejor evaluados"
+    },
+    "card": {
+      "distance": "distancia",
+      "min": "min",
+      "rate": "tarifa",
+      "completion": "completados",
+      "viewOffer": "Ver oferta"
+    },
+    "bestRate": "Mejor tarifa"
+  },
+  "trust": {
+    "title": "Tu dinero está protegido",
+    "subtitle": "Escrow garantizado por smart contracts en Stellar",
+    "features": [
+      {
+        "title": "Escrow seguro",
+        "description": "El proveedor solo recibe USDC después de darte el efectivo"
+      },
+      {
+        "title": "Sin bancos",
+        "description": "No necesitas cuenta bancaria ni identificación"
+      },
+      {
+        "title": "Verificación en cadena",
+        "description": "Todas las transacciones son verificables en Stellar"
+      }
+    ]
+  },
+  "stats": {
+    "title": "La confianza se mide",
+    "merchants": "Proveedores",
+    "transactions": "Transacciones",
+    "cities": "Ciudades",
+    "users": "Usuarios activos"
+  },
+  "merchantCTA": {
+    "title": "¿Quieres ser proveedor?",
+    "subtitle": "Únete a más de 500 proveedores en toda México",
+    "benefits": [
+      "Gana comisión por cada transacción",
+      "Horario flexible, tú decides cuándo trabajar",
+      "Sin banco necesario, solo necesitas efectivo",
+      "Pagos instantáneos vía Stellar"
+    ],
+    "cta": "Registrarme ahora",
+    "calculator": {
+      "title": "Calcula tus ganancias",
+      "label": "Transacciones mensuales",
+      "average": "Promedio por transacción",
+      "result": "Ganancia estimada"
+    }
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "questions": [
+      {
+        "q": "¿Cómo funciona el escrow?",
+        "a": "Cuando inicias una transacción, tus USDC se bloquean en un smart contract. El proveedor solo recibe el USDC después de que confirmes que recibiste tu efectivo. Si algo sale mal, recibes un reembolso completo."
+      },
+      {
+        "q": "¿Cuáles son las comisiones?",
+        "a": "Las comisiones varían entre proveedores, generalmente entre 1-3%. MicoPay cobra una pequeña tarifa de plataforma del 0.5%."
+      },
+      {
+        "q": "¿Necesito cuenta bancaria?",
+        "a": "No. MicoPay está diseñado para personas sin acceso bancario. Solo necesitas una billetera crypto (la app te ayuda a crear una)."
+      },
+      {
+        "q": "¿Es seguro?",
+        "a": "Sí. El escrow garantiza que tu dinero está protegido. Los proveedores tienen reputación verificada en cadena y están regulados."
+      },
+      {
+        "q": "¿Qué es USDC?",
+        "a": "USDC es una criptomoneda estable vinculada al dólar. 1 USDC = 1 USD. Es la moneda que usamos para las transacciones."
+      },
+      {
+        "q": "¿Puedo usar esto para remesas?",
+        "a": "¡Sí! Envía USDC desde cualquier parte del mundo y tu familiar puede retirar efectivo en México sin comisiones altas de Western Union."
+      }
+    ]
+  },
+  "footer": {
+    "description": "Tu dinero, cerca de ti. Convierte USDC a pesos mexicanos de forma segura.",
+    "links": {
+      "product": "Producto",
+      "company": "Empresa",
+      "legal": "Legal"
+    },
+    "product": ["Cómo funciona", "Proveedores", "Precios", "API"],
+    "company": ["Acerca de", "Blog", "Carreras", "Contacto"],
+    "legal": ["Términos", "Privacidad", "Cookies"],
+    "newsletter": "Suscríbete para actualizaciones",
+    "emailPlaceholder": "tu@email.com",
+    "subscribe": "Suscribir",
+    "copyright": "© 2024 MicoPay. Todos los derechos reservados.",
+    "download": "Descarga la app"
+  }
+}
