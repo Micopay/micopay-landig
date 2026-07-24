@@ -64,8 +64,8 @@
         "description": "No necesitas cuenta bancaria ni identificación"
       },
       {
-        "title": "Código abierto",
-        "description": "Todo el código es público y verificable en GitHub. Sin letra pequeña."
+        "title": "Verificación en cadena",
+        "description": "Todas las transacciones son verificables en Stellar"
       }
     ]
   },
@@ -121,6 +121,9 @@
         "a": "¡Sí! Envía USDC desde cualquier parte del mundo y tu familiar puede retirar efectivo en México sin comisiones altas de Western Union."
       }
     ]
+  },
+  "openSource": {
+    "label": "Construido con tecnología open source"
   },
   "footer": {
     "description": "Tu dinero, cerca de ti. Convierte USDC a pesos mexicanos de forma segura.",

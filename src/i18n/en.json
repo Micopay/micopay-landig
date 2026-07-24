@@ -64,8 +64,8 @@
         "description": "No bank account or ID required"
       },
       {
-        "title": "Open source",
-        "description": "All code is public and verifiable on GitHub. No fine print."
+        "title": "On-chain verification",
+        "description": "All transactions are verifiable on Stellar"
       }
     ]
   },
@@ -121,6 +121,9 @@
         "a": "Yes! Send USDC from anywhere in the world and your family can withdraw cash in Mexico without high Western Union fees."
       }
     ]
+  },
+  "openSource": {
+    "label": "Built with open source technology"
   },
   "footer": {
     "description": "Your money, near you. Convert USDC to Mexican pesos securely.",

@@ -1,6 +1,6 @@
 import { useI18n } from '../i18n'
 
-const icons = ['shield_lock', 'account_balance', 'code']
+const icons = ['shield_lock', 'account_balance', 'verified_user']
 
 export default function TrustSecurity() {
   const { t } = useI18n()

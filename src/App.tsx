@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import HowItWorks from './components/HowItWorks'
 import FeaturedMerchants from './components/FeaturedMerchants'
 import TrustSecurity from './components/TrustSecurity'
+import OpenSource from './components/OpenSource'
 import Stats from './components/Stats'
 import MerchantCTA from './components/MerchantCTA'
 import FAQ from './components/FAQ'
@@ -21,6 +22,7 @@ function App() {
             <HowItWorks />
             <FeaturedMerchants />
             <TrustSecurity />
+            <OpenSource />
             <Stats />
             <MerchantCTA />
             <FAQ />
