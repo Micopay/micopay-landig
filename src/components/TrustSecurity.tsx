@@ -1,6 +1,6 @@
 import { useI18n } from '../i18n'
 
-const icons = ['shield_lock', 'account_balance', 'verified_user']
+const icons = ['shield_lock', 'account_balance', 'code']
 
 export default function TrustSecurity() {
   const { t } = useI18n()
@@ -49,7 +49,7 @@ export default function TrustSecurity() {
               <p className="text-sm text-text-secondary">Envía USDC</p>
             </div>
 
-            <div className="hidden md:flex items-center justify-center">
+            <div className="hidden md:flex items-center justify-center" aria-hidden="true">
               <span className="material-symbols-outlined text-primary text-3xl">arrow_forward</span>
             </div>
 
@@ -61,7 +61,7 @@ export default function TrustSecurity() {
               <p className="text-sm text-text-secondary">Smart Contract</p>
             </div>
 
-            <div className="hidden md:flex items-center justify-center">
+            <div className="hidden md:flex items-center justify-center" aria-hidden="true">
               <span className="material-symbols-outlined text-primary text-3xl">arrow_forward</span>
             </div>
 

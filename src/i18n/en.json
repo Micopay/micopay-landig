@@ -64,8 +64,8 @@
         "description": "No bank account or ID required"
       },
       {
-        "title": "On-chain verification",
-        "description": "All transactions are verifiable on Stellar"
+        "title": "Open source",
+        "description": "All code is public and verifiable on GitHub. No fine print."
       }
     ]
   },

@@ -50,7 +50,7 @@ export default function Header() {
             <button
               onClick={toggleTheme}
               className="p-2.5 rounded-full border border-border hover:border-primary transition-all"
-              aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+              aria-label={theme === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'}
             >
               <span className="material-symbols-outlined text-text-primary text-lg">
                 {theme === 'light' ? 'dark_mode' : 'light_mode'}
@@ -61,6 +61,7 @@ export default function Header() {
             <button
               onClick={toggleLang}
               className="px-3 py-1.5 text-xs font-bold uppercase rounded-full border border-border hover:border-primary hover:text-primary transition-colors"
+              aria-label={lang === 'es' ? 'Switch to English' : 'Cambiar a español'}
             >
               {lang === 'es' ? 'EN' : 'ES'}
             </button>
@@ -77,7 +78,8 @@ export default function Header() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors"
-              aria-label="Menu"
+              aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+              aria-expanded={mobileMenuOpen}
             >
               <span className="material-symbols-outlined text-text-primary">
                 {mobileMenuOpen ? 'close' : 'menu'}

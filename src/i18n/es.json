@@ -64,8 +64,8 @@
         "description": "No necesitas cuenta bancaria ni identificación"
       },
       {
-        "title": "Verificación en cadena",
-        "description": "Todas las transacciones son verificables en Stellar"
+        "title": "Código abierto",
+        "description": "Todo el código es público y verificable en GitHub. Sin letra pequeña."
       }
     ]
   },
