@@ -15,9 +15,7 @@
     {
       "binding": "DB",
       "database_name": "micopay-leads",
-      // Pendiente: correr `wrangler d1 create micopay-leads` y pegar aquí el
-      // database_id que devuelve. Sin esto el binding falla al desplegar.
-      "database_id": "PENDIENTE-crear-con-wrangler-d1-create"
+      "database_id": "a744fac0-cf90-4505-aff4-920afa93e580"
     }
   ],
   "vars": {
