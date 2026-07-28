@@ -57,7 +57,20 @@ export default function Conversor() {
             <span className="cv-chip-icon cv-chip-icon--alt"><span className="ms">storefront</span></span>
             <span className="cv-chip-t">0.5 km</span>
           </div>
-          <div className="cv-punto" />
+          {/* Hongo del mapa: cada proveedor es un nodo de la red micelial.
+              Proporciones clásicas para que se reconozca a ~60px — sombrero
+              alto que sobresale, tallo grueso con base ensanchada. El tallo
+              va primero para que el sombrero lo tape y el borde quede limpio.
+              Adorno, no contenido. */}
+          <div className="cv-nodo">
+            <svg className="cv-hongo" viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false">
+              <path d="M23 30v17a9 7 0 0 0 18 0V30Z" fill="#1D9E75" />
+              <path d="M4 33C4 16 17 5 32 5s28 11 28 28Z" fill="#5DCAA5" />
+              <circle cx="20" cy="21" r="3.4" fill="#0C2119" opacity=".38" />
+              <circle cx="41" cy="16" r="4.2" fill="#0C2119" opacity=".38" />
+            </svg>
+            <span className="cv-nodo-t">Red micelial MicoPay</span>
+          </div>
         </div>
 
         <div className="cv-panel">
@@ -125,7 +138,16 @@ export default function Conversor() {
         .cv-chip-icon { width: 24px; height: 24px; border-radius: 999px; background: #5DCAA5; display: flex; align-items: center; justify-content: center; font-size: 15px; color: #0B1420; }
         .cv-chip-icon--alt { background: #1D9E75; color: #fff; }
         .cv-chip-t { font-size: 12px; font-weight: 800; color: #5DCAA5; }
-        .cv-punto { position: absolute; bottom: 18%; left: 18%; width: 30px; height: 30px; border-radius: 999px; background: rgba(93,202,165,.25); border: 1px solid rgba(93,202,165,.45); }
+        .cv-nodo {
+          position: absolute; bottom: 8%; left: 8%;
+          display: flex; flex-direction: column; align-items: center; gap: 5px;
+          animation: floaty 8s ease-in-out infinite;
+        }
+        .cv-hongo { width: 58px; height: auto; }
+        .cv-nodo-t {
+          font-size: 9.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+          color: #5DCAA5; white-space: nowrap; opacity: .85;
+        }
 
         .cv-panel { padding: 22px 8px 8px; }
         .cv-panel-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
