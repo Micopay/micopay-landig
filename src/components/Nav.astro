@@ -1,0 +1,49 @@
+---
+---
+<header class="nav">
+  <div class="container nav-in">
+    <a href="#top" class="brand">
+      <svg fill="none" height="28" width="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="7" cy="7" r="3" stroke="#0B1E26" stroke-width="2"></circle>
+        <circle cx="17" cy="17" r="3" stroke="#1D9E75" stroke-width="2"></circle>
+        <path d="M10 10L14 14" stroke="#00694C" stroke-linecap="round" stroke-width="2"></path>
+      </svg>
+      <span class="brand-t">Mico<span class="brand-accent">Pay</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#proveedores">Proveedores</a>
+      <a href="#seguridad">Seguridad</a>
+      <a href="#lead">Registrarme</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#lead" class="nav-secundario">Ser proveedor</a>
+      <a href="#lead" class="btn btn--primary nav-btn">
+        <span class="ms">search</span>Quiero entrar
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(246,250,248,.82); backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--linea);
+  }
+  .nav-in {
+    min-height: 72px; padding-top: 12px; padding-bottom: 12px;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; color: inherit; }
+  .brand-t { font-family: var(--font-display); font-weight: 800; font-size: 20px; letter-spacing: -.02em; color: var(--tinta); }
+  .brand-accent { color: var(--verde-claro); }
+  .nav-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .nav-links a { font-size: 14px; font-weight: 600; color: var(--gris); white-space: nowrap; }
+  .nav-links a:hover { color: var(--verde); }
+  .nav-cta { display: flex; align-items: center; gap: 10px; }
+  .nav-secundario { font-size: 14px; font-weight: 700; color: var(--tinta); padding: 10px 14px; border-radius: 12px; }
+  .nav-secundario:hover { background: var(--verde-suave); }
+  .nav-btn { padding: 11px 20px; font-size: 14px; }
+  .nav-btn .ms { font-size: 18px; }
+</style>

@@ -1,0 +1,62 @@
+---
+const anio = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="brand">
+        <svg fill="none" height="26" width="26" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="7" cy="7" r="3" stroke="#0B1E26" stroke-width="2"></circle>
+          <circle cx="17" cy="17" r="3" stroke="#1D9E75" stroke-width="2"></circle>
+          <path d="M10 10L14 14" stroke="#00694C" stroke-linecap="round" stroke-width="2"></path>
+        </svg>
+        <span class="brand-t">Mico<span class="brand-accent">Pay</span></span>
+      </div>
+      <p class="desc">Efectivo de USDC con gente de tu colonia. Protocolo abierto sobre Stellar.</p>
+    </div>
+    <div>
+      <div class="col-t">Producto</div>
+      <div class="col-links">
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#proveedores">Proveedores</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="#lead">Registrarme</a>
+      </div>
+    </div>
+    <div>
+      <div class="col-t">Empresa</div>
+      <div class="col-links">
+        <a href="https://github.com/Micopay">GitHub</a>
+        <a href="mailto:hola@micopay.com.mx">Contacto</a>
+      </div>
+    </div>
+    <div>
+      <div class="col-t">Legal</div>
+      <div class="col-links">
+        <a href="/terms">Términos</a>
+        <a href="/privacy">Privacidad</a>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© {anio} MicoPay. Todos los derechos reservados.</span>
+    <span>Hecho en México · Open source</span>
+  </div>
+</footer>
+
+<style>
+  .footer { background: #fff; border-top: 1px solid var(--linea); padding: 64px 24px 40px; }
+  .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 48px; margin-bottom: 48px; }
+  .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .brand-t { font-family: var(--font-display); font-weight: 800; font-size: 19px; }
+  .brand-accent { color: var(--verde-claro); }
+  .desc { color: var(--gris); font-size: 15px; max-width: 26em; }
+  .col-t { font-family: var(--font-display); font-weight: 800; font-size: 14px; margin-bottom: 14px; }
+  .col-links { display: grid; gap: 10px; font-size: 14.5px; }
+  .col-links a { color: var(--gris); }
+  .footer-bottom {
+    padding-top: 24px; border-top: 1px solid var(--linea-suave);
+    display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    font-size: 13.5px; color: var(--gris-2);
+  }
+</style>

@@ -1,0 +1,45 @@
+---
+const pasos = [
+  { n: '01', icon: 'search', titulo: 'Busca', texto: 'Abre el mapa y mira quién tiene efectivo disponible ahora mismo a menos de un kilómetro.', dark: false },
+  { n: '02', icon: 'compare_arrows', titulo: 'Elige y bloquea', texto: 'Comparas tarifa y reputación. Al aceptar, tus USDC quedan retenidos en el escrow, no con el proveedor.', dark: false },
+  { n: '03', icon: 'qr_code_scanner', titulo: 'Cobra', texto: 'Llegas, muestras el QR y recibes tus pesos. Solo entonces se libera el pago al proveedor.', dark: true },
+];
+---
+<section id="como-funciona" class="section section--white">
+  <div class="container">
+    <div class="head">
+      <div>
+        <div class="label">Cómo funciona</div>
+        <h2 class="h2">Tres pasos, ocho minutos</h2>
+      </div>
+      <p class="head-p">Nadie te pide identificación, contrato ni cuenta bancaria. Solo tu billetera y un proveedor cerca.</p>
+    </div>
+
+    <div class="grid">
+      {pasos.map((p) => (
+        <div class:list={["paso", { "paso--dark": p.dark }]}>
+          <div class="paso-n">{p.n}</div>
+          <span class="ms paso-icon">{p.icon}</span>
+          <h3 class="paso-t">{p.titulo}</h3>
+          <p class="paso-p">{p.texto}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .head { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 56px; flex-wrap: wrap; }
+  .h2 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; }
+  .head-p { font-size: 16px; color: var(--gris); max-width: 24em; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .paso { padding: 34px 30px 32px; border-radius: 26px; background: var(--fondo); border: 1px solid var(--linea); }
+  .paso--dark { background: var(--tinta); border-color: var(--tinta); color: #fff; }
+  .paso-n { font-family: var(--font-display); font-size: 13px; font-weight: 800; color: #a7bdb5; margin-bottom: 26px; }
+  .paso--dark .paso-n { color: var(--verde-brillo); }
+  .paso-icon { font-size: 34px; color: var(--verde); }
+  .paso--dark .paso-icon { color: var(--verde-brillo); }
+  .paso-t { font-size: 22px; margin: 18px 0 10px; letter-spacing: -.02em; }
+  .paso-p { color: var(--gris); font-size: 15px; }
+  .paso--dark .paso-p { color: #9fb4bd; }
+</style>

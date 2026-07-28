@@ -1,0 +1,46 @@
+---
+import '../styles/mp-styles.css';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import ComoFunciona from '../components/ComoFunciona.astro';
+import ProveedoresSection from '../components/ProveedoresSection.astro';
+import Seguridad from '../components/Seguridad.astro';
+import ContactSection from '../components/ContactSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaFinal from '../components/CtaFinal.astro';
+import Footer from '../components/Footer.astro';
+
+const titulo = 'MicoPay — Tu dinero, cerca de ti';
+const descripcion = 'Cambia USDC por pesos en efectivo con una persona real de tu colonia. Escrow en Stellar, sin banco, sin trámites.';
+---
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{titulo}</title>
+  <meta name="description" content={descripcion} />
+  <link rel="canonical" href="https://micopay.com.mx/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+
+  <!-- Turnstile: se carga async, no bloquea el render del formulario. -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</head>
+<body>
+  <Nav />
+  <main>
+    <Hero />
+    <ComoFunciona />
+    <ProveedoresSection />
+    <Seguridad />
+    <ContactSection />
+    <FaqSection />
+    <CtaFinal />
+  </main>
+  <Footer />
+</body>
+</html>

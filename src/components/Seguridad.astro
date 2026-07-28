@@ -1,0 +1,80 @@
+---
+const items = [
+  { icon: 'lock', titulo: 'Escrow en cadena', texto: 'Tus USDC se bloquean al iniciar. Si algo falla, vuelven completos a tu billetera.' },
+  { icon: 'no_accounts', titulo: 'Sin banco, sin INE', texto: 'Pensado para quien no tiene cuenta. La app crea tu billetera en menos de un minuto.' },
+  { icon: 'fact_check', titulo: 'Reputación verificable', texto: 'Cada operación queda registrada. La reputación de un proveedor no se puede inventar.' },
+];
+---
+<section id="seguridad" class="section section--dark">
+  <div class="container">
+    <div class="intro">
+      <div class="label" style="color: var(--verde-brillo);">Seguridad</div>
+      <h2 class="h2">El proveedor cobra hasta que tú tienes el efectivo</h2>
+      <p class="intro-p">No es una promesa comercial: es un contrato inteligente en Stellar que cualquiera puede leer y verificar.</p>
+    </div>
+
+    <div class="grid">
+      {items.map((it) => (
+        <div class="tarjeta">
+          <span class="ms tarjeta-icon">{it.icon}</span>
+          <h3 class="tarjeta-t">{it.titulo}</h3>
+          <p class="tarjeta-p">{it.texto}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="flujo">
+      <div class="paso-flujo">
+        <div class="circulo">
+          <span class="ms">person</span>
+        </div>
+        <div class="paso-flujo-t">Tú</div>
+        <div class="paso-flujo-p">Depositas USDC</div>
+      </div>
+      <span class="ms flecha">arrow_forward</span>
+      <div class="paso-flujo">
+        <div class="circulo circulo--grande">
+          <span class="ms">lock</span>
+        </div>
+        <div class="paso-flujo-t" style="color: var(--verde-brillo);">Escrow</div>
+        <div class="paso-flujo-p">Smart contract Soroban</div>
+      </div>
+      <span class="ms flecha">arrow_forward</span>
+      <div class="paso-flujo">
+        <div class="circulo">
+          <span class="ms">storefront</span>
+        </div>
+        <div class="paso-flujo-t">Proveedor</div>
+        <div class="paso-flujo-p">Entrega el efectivo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .intro { max-width: 640px; margin-bottom: 56px; }
+  .h2 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; margin-bottom: 16px; }
+  .intro-p { font-size: 17px; color: #9fb4bd; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-bottom: 22px; }
+  .tarjeta { background: var(--tinta-2); border: 1px solid var(--tinta-3); border-radius: 24px; padding: 30px; }
+  .tarjeta-icon { font-size: 30px; color: var(--verde-brillo); }
+  .tarjeta-t { font-size: 19px; margin: 16px 0 8px; }
+  .tarjeta-p { color: #9fb4bd; font-size: 15px; }
+
+  .flujo {
+    background: var(--tinta-2); border: 1px solid var(--tinta-3); border-radius: 26px; padding: 40px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, auto)); justify-content: center; align-items: center; gap: 24px;
+  }
+  .paso-flujo { text-align: center; }
+  .circulo {
+    width: 56px; height: 56px; margin: 0 auto 12px; border-radius: 999px;
+    background: rgba(93,202,165,.14); display: flex; align-items: center; justify-content: center; color: var(--verde-brillo);
+  }
+  .circulo--grande {
+    width: 72px; height: 72px; background: linear-gradient(140deg, var(--verde), var(--verde-claro));
+    box-shadow: 0 12px 30px rgba(29,158,117,.35); color: #fff;
+  }
+  .paso-flujo-t { font-weight: 800; }
+  .paso-flujo-p { font-size: 13px; color: #7e96a1; }
+  .flecha { color: #35505c; font-size: 26px; }
+</style>

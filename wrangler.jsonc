@@ -1,0 +1,44 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "micopay-web",
+  "compatibility_date": "2026-07-27",
+  "main": "src/worker.ts",
+  "assets": {
+    "directory": "dist/",
+    "not_found_handling": "404-page",
+    "binding": "ASSETS",
+    // Sin esto, un archivo que existe (p.ej. "/" -> index.html) se sirve directo
+    // y el Worker nunca corre — la redirección de www no se aplicaría en la raíz.
+    "run_worker_first": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "micopay-leads",
+      // Pendiente: correr `wrangler d1 create micopay-leads` y pegar aquí el
+      // database_id que devuelve. Sin esto el binding falla al desplegar.
+      "database_id": "PENDIENTE-crear-con-wrangler-d1-create"
+    }
+  ],
+  "vars": {
+    "MAILGUN_DOMAIN": "micopay.com.mx",
+    "NOTIFY_TO": "eric.020.1999@gmail.com"
+    // MAILGUN_BASE: descomentar con "https://api.eu.mailgun.net" si la cuenta
+    // de Mailgun de MicoPay queda en la región europea.
+  },
+  // Secretos (nunca en este archivo — se cargan con `wrangler secret put`):
+  //   MAILGUN_API_KEY   · clave privada de la API de Mailgun (cuenta propia de MicoPay)
+  //   TURNSTILE_SECRET  · clave del widget anti-spam (opcional: sin ella no bloquea)
+  //   ADMIN_PASSWORD    · contraseña del panel /admin (sin ella, /admin responde 404)
+  //
+  // Se sirve solo en el dominio propio, sin subdominio workers.dev:
+  // evita duplicar el sitio en dos URLs (penaliza SEO).
+  "routes": [
+    { "pattern": "micopay.com.mx", "custom_domain": true },
+    // www existe solo para redirigir al dominio pelón (ver worker.ts).
+    { "pattern": "www.micopay.com.mx", "custom_domain": true }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}

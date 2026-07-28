@@ -1,0 +1,21 @@
+---
+import Proveedores from './Proveedores.jsx';
+---
+<section id="proveedores" class="section">
+  <div class="container">
+    <div class="head">
+      <div>
+        <div class="label">Proveedores</div>
+        <h2 class="h2">Quién tendrá efectivo cerca de ti</h2>
+      </div>
+      <p class="head-p">Ejemplo ilustrativo de cómo se verá la red — <strong>los proveedores reales se activan por ciudad</strong> conforme se registran.</p>
+    </div>
+    <Proveedores client:visible />
+  </div>
+</section>
+
+<style>
+  .head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 32px; flex-wrap: wrap; }
+  .h2 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; }
+  .head-p { font-size: 15px; color: var(--gris); max-width: 26em; }
+</style>
