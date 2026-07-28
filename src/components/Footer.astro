@@ -40,7 +40,9 @@ const anio = new Date().getFullYear();
   </div>
   <div class="container footer-bottom">
     <span>© {anio} MicoPay. Todos los derechos reservados.</span>
-    <span>Hecho en México · Open source</span>
+    <span class="creditos">
+      {'Hecho en México · Construido por '}<a href="https://motelabs.com.mx" target="_blank" rel="noopener">Mote Labs</a>
+    </span>
   </div>
 </footer>
 
@@ -59,4 +61,6 @@ const anio = new Date().getFullYear();
     display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
     font-size: 13.5px; color: var(--gris-2);
   }
+  .creditos a { color: var(--verde); font-weight: 700; }
+  .creditos a:hover { color: var(--verde-claro); }
 </style>
