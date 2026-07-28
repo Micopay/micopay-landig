@@ -1,0 +1,47 @@
+---
+import '../styles/mp-styles.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const titulo = 'Página no encontrada — MicoPay';
+---
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{titulo}</title>
+  <meta name="robots" content="noindex" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet" />
+</head>
+<body>
+  <Nav />
+  <main>
+    <section class="err-wrap">
+      <div class="container err-caja">
+        <p class="label">Error 404</p>
+        <h1 class="err-h1">Esta página no existe</h1>
+        <p class="err-p">Puede que el enlace esté roto o que la página se haya movido. Regresa al inicio para seguir donde te quedaste.</p>
+        <a href="/" class="btn btn--primary">
+          <span class="ms">arrow_back</span>Volver al inicio
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</body>
+</html>
+
+<style>
+  .err-wrap { padding: 120px 24px; min-height: 50vh; display: flex; align-items: center; }
+  .err-caja { max-width: 44em; text-align: center; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+  .err-h1 { font-size: clamp(32px, 4vw, 44px); line-height: 1.15; margin-bottom: 16px; }
+  .err-p { color: var(--gris); font-size: 17px; margin-bottom: 32px; }
+</style>
