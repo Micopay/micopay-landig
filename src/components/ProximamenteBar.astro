@@ -1,0 +1,36 @@
+---
+const items = [
+  { icon: 'savings', label: 'CETES tokenizados' },
+  { icon: 'account_tree', label: 'Acceso a DeFi' },
+];
+---
+<section class="barra">
+  <div class="container barra-in">
+    <span class="barra-t">Más que efectivo — próximamente en MicoPay</span>
+    <div class="barra-items">
+      {items.map((it) => (
+        <span class="barra-item">
+          <span class="ms">{it.icon}</span>{it.label}
+        </span>
+      ))}
+      <span class="barra-tag">Próximamente</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .barra { border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); background: #fff; }
+  .barra-in {
+    padding: 18px 24px; display: flex; align-items: center; justify-content: center;
+    gap: 28px; flex-wrap: wrap;
+  }
+  .barra-t { font-size: 13px; font-weight: 700; color: var(--gris-2); letter-spacing: .02em; }
+  .barra-items { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .barra-item { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; color: var(--tinta); }
+  .barra-item .ms { font-size: 17px; color: var(--verde); }
+  .barra-tag {
+    font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+    color: var(--verde-claro); background: var(--verde-suave); border: 1px solid var(--verde-borde);
+    padding: 4px 10px; border-radius: 999px;
+  }
+</style>

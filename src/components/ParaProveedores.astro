@@ -1,0 +1,45 @@
+---
+import Calculadora from './Calculadora.jsx';
+
+const puntos = [
+  'Comisión en cada operación, cobrada al instante en USDC',
+  'Horario flexible: te activas solo cuando tienes efectivo',
+  'Sin terminal, sin renta mensual',
+  'Clientes nuevos que entran a tu negocio a recoger',
+];
+---
+<section id="ser-proveedor" class="section">
+  <div class="container grid">
+    <div>
+      <div class="label">Para proveedores</div>
+      <h2 class="h2">Tu caja registradora ya es un cajero</h2>
+      <p class="intro-p">
+        Si manejas efectivo todos los días, puedes cobrar comisión por cambiarlo. Tú decides
+        tarifa, horario y cuánto entregas.
+      </p>
+      <div class="lista">
+        {puntos.map((p) => (
+          <div class="punto">
+            <span class="ms">check_circle</span>
+            <span>{p}</span>
+          </div>
+        ))}
+      </div>
+      <a href="#lead" class="btn btn--primary">
+        Registrar mi negocio<span class="ms">arrow_forward</span>
+      </a>
+    </div>
+
+    <Calculadora client:visible />
+  </div>
+</section>
+
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 64px; align-items: center; }
+  .h2 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; margin-bottom: 16px; }
+  .intro-p { font-size: 17px; color: var(--gris); margin-bottom: 30px; }
+  .lista { display: grid; gap: 14px; margin-bottom: 34px; }
+  .punto { display: flex; gap: 12px; align-items: flex-start; }
+  .punto .ms { color: var(--verde-claro); font-size: 20px; margin-top: 2px; }
+  .punto span:last-child { color: #35505c; }
+</style>
