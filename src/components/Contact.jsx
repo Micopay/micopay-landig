@@ -10,9 +10,9 @@
 import React from 'react';
 
 /* Clave pública del widget anti-spam de Turnstile. No es secreta: viaja al
-   navegador. TODO: reemplazar con la site key real una vez creado el widget
-   para micopay.com.mx en el dashboard de Cloudflare Turnstile. */
-const TURNSTILE_SITE_KEY = '1x00000000000000000000AA';
+   navegador. Su contraparte privada vive como TURNSTILE_SECRET en el Worker.
+   Widget en modo "managed" para micopay.com.mx y www.micopay.com.mx. */
+const TURNSTILE_SITE_KEY = '0x4AAAAAAECVQ_UG_9RUXc9q';
 
 function leerUtm() {
   if (typeof window === 'undefined') return {};
