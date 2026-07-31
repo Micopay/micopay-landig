@@ -1,0 +1,186 @@
+---
+/* Aviso de privacidad — LFPDPPP.
+   Redactado sobre lo que el sitio hace HOY y nada más: un formulario de lista
+   de espera. Los campos marcados con <span class="pendiente"> requieren datos
+   que solo el negocio tiene (razón social, domicilio). Debe revisarlo un
+   abogado antes de darlo por definitivo. */
+import Legal from '../layouts/Legal.astro';
+---
+<Legal
+  titulo="Aviso de privacidad"
+  descripcion="Cómo MicoPay recaba, usa y protege tus datos personales."
+  actualizado="30 de julio de 2026"
+>
+  <div class="aviso-caja">
+    <p>
+      <strong>En corto:</strong> solo guardamos lo que escribes en el formulario de lista de
+      espera —tu nombre, correo, ciudad y qué te interesa— para avisarte cuando MicoPay abra
+      donde vives. No vendemos tus datos ni los compartimos con anunciantes. Puedes pedir que
+      los borremos cuando quieras escribiendo a
+      <a href="mailto:hola@micopay.com.mx">hola@micopay.com.mx</a>.
+    </p>
+  </div>
+
+  <h2>1. Quién es responsable de tus datos</h2>
+  <p>
+    <span class="pendiente">[RAZÓN SOCIAL]</span>, con domicilio en
+    <span class="pendiente">[DOMICILIO FISCAL COMPLETO]</span>, es responsable del tratamiento
+    de tus datos personales, en términos de la Ley Federal de Protección de Datos Personales
+    en Posesión de los Particulares (LFPDPPP), su Reglamento y demás normativa aplicable.
+  </p>
+  <p>
+    Para cualquier tema relacionado con tus datos personales:
+    <a href="mailto:hola@micopay.com.mx">hola@micopay.com.mx</a>.
+  </p>
+
+  <h2>2. Qué datos recabamos</h2>
+  <p>
+    Recabamos únicamente los datos que tú nos proporcionas al llenar el formulario de la lista
+    de espera, más cierta información técnica que genera tu navegador de forma automática:
+  </p>
+  <table>
+    <thead>
+      <tr><th>Dato</th><th>Cómo se obtiene</th><th>¿Obligatorio?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Nombre</td><td>Tú lo escribes</td><td>Sí</td></tr>
+      <tr><td>Correo electrónico</td><td>Tú lo escribes</td><td>Sí</td></tr>
+      <tr><td>Ciudad</td><td>Tú la escribes</td><td>No</td></tr>
+      <tr><td>Tipo de interés (usuario, proveedor, inversión o prensa)</td><td>Tú lo eliges</td><td>Sí</td></tr>
+      <tr><td>Mensaje libre</td><td>Tú lo escribes</td><td>No</td></tr>
+      <tr><td>Dirección IP y navegador (user agent)</td><td>Automático, al enviar el formulario</td><td>Automático</td></tr>
+      <tr><td>Origen de la visita (parámetros UTM)</td><td>Automático, si llegaste desde una campaña</td><td>Automático</td></tr>
+    </tbody>
+  </table>
+  <p>
+    <strong>No recabamos datos personales sensibles</strong> (origen racial o étnico, estado de
+    salud, creencias, preferencia sexual, opiniones políticas, entre otros), ni datos
+    financieros o patrimoniales, ni documentos de identificación oficial.
+  </p>
+
+  <h2>3. Para qué usamos tus datos</h2>
+  <h3>Finalidades primarias</h3>
+  <p>Estas son necesarias para la relación contigo. Sin ellas no podríamos atender tu registro:</p>
+  <ul>
+    <li>Enviarte el acuse de que recibimos tu registro.</li>
+    <li>Avisarte cuando MicoPay esté disponible en tu ciudad.</li>
+    <li>Contactarte para dar seguimiento al interés que manifestaste.</li>
+    <li>Prevenir abusos y envíos automatizados del formulario.</li>
+  </ul>
+  <h3>Finalidades secundarias</h3>
+  <p>
+    No son necesarias, pero nos ayudan a decidir dónde y con quién abrir primero. Puedes negarte
+    a ellas sin que eso afecte tu registro:
+  </p>
+  <ul>
+    <li>Analizar de forma agregada en qué ciudades y perfiles hay más interés.</li>
+    <li>Medir qué canales de difusión funcionan mejor.</li>
+  </ul>
+  <p>
+    Si no quieres que usemos tus datos para las finalidades secundarias, escríbenos a
+    <a href="mailto:hola@micopay.com.mx">hola@micopay.com.mx</a> y lo aplicamos sin costo.
+  </p>
+
+  <h2>4. Con quién compartimos tus datos</h2>
+  <p>
+    <strong>No vendemos ni rentamos tus datos personales.</strong> Para operar el sitio nos
+    apoyamos en los siguientes proveedores de servicio, que tratan los datos únicamente por
+    nuestra instrucción:
+  </p>
+  <table>
+    <thead>
+      <tr><th>Proveedor</th><th>Para qué</th><th>Qué recibe</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cloudflare, Inc. (EE. UU.)</td>
+        <td>Hospedaje del sitio, base de datos y protección anti–bots</td>
+        <td>Todos los datos del formulario, IP y navegador</td>
+      </tr>
+      <tr>
+        <td>Mailgun / Sinch (EE. UU.)</td>
+        <td>Envío de los correos de acuse y aviso</td>
+        <td>Nombre, correo y contenido del mensaje</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    Estas transferencias son las necesarias para prestarte el servicio que solicitaste y, en
+    términos del artículo 37 de la LFPDPPP, no requieren tu consentimiento adicional. Tus datos
+    se almacenan en servidores ubicados fuera de México.
+  </p>
+  <p>
+    Fuera de estos casos, solo revelaríamos tus datos si una autoridad competente lo requiere
+    conforme a la ley.
+  </p>
+
+  <h2>5. Tus derechos ARCO</h2>
+  <p>Puedes ejercer en cualquier momento tus derechos de:</p>
+  <ul>
+    <li><strong>Acceso</strong> — saber qué datos tuyos tenemos y para qué los usamos.</li>
+    <li><strong>Rectificación</strong> — corregirlos si están mal o incompletos.</li>
+    <li><strong>Cancelación</strong> — pedir que los eliminemos de nuestros registros.</li>
+    <li><strong>Oposición</strong> — pedir que dejemos de usarlos para un fin específico.</li>
+  </ul>
+  <p>
+    Manda tu solicitud a <a href="mailto:hola@micopay.com.mx">hola@micopay.com.mx</a> indicando
+    tu nombre, el correo con el que te registraste, qué derecho quieres ejercer y una copia de
+    una identificación que acredite que eres tú (solo para verificar tu identidad; no la
+    conservamos después de atender la solicitud).
+  </p>
+  <p>
+    Te responderemos en un plazo máximo de <strong>20 días hábiles</strong> y, de resultar
+    procedente, la haremos efectiva dentro de los <strong>15 días hábiles</strong> siguientes.
+    Ejercer estos derechos es gratuito.
+  </p>
+
+  <h2>6. Revocación del consentimiento</h2>
+  <p>
+    Puedes retirar tu consentimiento cuando quieras, por el mismo medio. Cada correo que te
+    enviemos incluye además una forma directa de darte de baja. Al darte de baja, dejamos de
+    contactarte y eliminamos tus datos de la lista de espera.
+  </p>
+
+  <h2>7. Cuánto tiempo conservamos tus datos</h2>
+  <p>
+    Conservamos tus datos mientras sigas en la lista de espera y hasta por
+    <strong>24 meses</strong> después del último contacto contigo, salvo que nos pidas
+    eliminarlos antes o que una obligación legal exija conservarlos por más tiempo.
+  </p>
+
+  <h2>8. Cookies y tecnologías similares</h2>
+  <p>
+    Este sitio <strong>no usa cookies publicitarias ni de seguimiento entre sitios</strong>.
+    La herramienta anti–bots de Cloudflare (Turnstile) puede colocar un identificador temporal
+    en tu navegador con el único fin de distinguir a una persona de un programa automatizado.
+  </p>
+  <p>
+    Si llegas desde una campaña, la dirección puede incluir parámetros de origen (UTM) que
+    guardamos junto con tu registro para saber qué canal funcionó.
+  </p>
+
+  <h2>9. Seguridad</h2>
+  <p>
+    Aplicamos medidas administrativas, técnicas y físicas razonables para proteger tus datos:
+    el sitio se sirve cifrado (HTTPS), el acceso a la base de datos está restringido, y el panel
+    interno donde se consultan los registros requiere autenticación. Ningún sistema es
+    infalible, pero nos comprometemos a notificarte si ocurriera una vulneración que afecte
+    tus datos de forma significativa.
+  </p>
+
+  <h2>10. Cambios a este aviso</h2>
+  <p>
+    Podemos actualizar este aviso cuando cambie la forma en que tratamos tus datos, o por
+    cambios legales o de nuestros proveedores. Publicaremos la versión vigente en esta misma
+    dirección, con su fecha de actualización. Si el cambio es sustancial, te avisaremos por
+    correo.
+  </p>
+
+  <h2>11. Si algo no te parece</h2>
+  <p>
+    Si consideras que tu derecho a la protección de datos personales fue vulnerado, puedes
+    acudir ante el <strong>Instituto Nacional de Transparencia, Acceso a la Información y
+    Protección de Datos Personales (INAI)</strong> —o la autoridad que lo sustituya— en
+    <a href="https://home.inai.org.mx" target="_blank" rel="noopener">home.inai.org.mx</a>.
+  </p>
+</Legal>

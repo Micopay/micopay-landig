@@ -69,14 +69,17 @@ export default function Conversor() {
               <circle cx="20" cy="21" r="3.4" fill="#0C2119" opacity=".38" />
               <circle cx="41" cy="16" r="4.2" fill="#0C2119" opacity=".38" />
             </svg>
-            <span className="cv-nodo-t">Red micelial MicoPay</span>
+            <span className="cv-nodo-t" translate="no">Red micelial MicoPay</span>
           </div>
         </div>
 
         <div className="cv-panel">
           <div className="cv-panel-row">
             <span className="cv-panel-label">Retirar</span>
-            <span className="cv-panel-rate">1 USDC ≈ {TIPO_CAMBIO.toFixed(2)} MXN</span>
+            {/* translate="no" + una sola interpolación: el traductor del
+                navegador rompe React si parte el texto en varios nodos, y
+                además corrompe cifras (18.70 -> 18,70). */}
+            <span className="cv-panel-rate" translate="no">{`1 USDC ≈ ${TIPO_CAMBIO.toFixed(2)} MXN`}</span>
           </div>
           <div className="cv-input-row">
             <span className="cv-moneda">USDC</span>
@@ -91,11 +94,11 @@ export default function Conversor() {
           <div className="cv-resumen">
             <div>
               <div className="cv-resumen-label">Recibes aprox.</div>
-              <div className="cv-resumen-valor">{mxn(recibes)}</div>
+              <div className="cv-resumen-valor" translate="no">{mxn(recibes)}</div>
             </div>
             <div className="cv-resumen-derecha">
               <div className="cv-resumen-label">Tarifa total</div>
-              <div className="cv-resumen-comision">{TARIFA_MIN}%–{TARIFA_MAX}%</div>
+              <div className="cv-resumen-comision" translate="no">{`${TARIFA_MIN}%–${TARIFA_MAX}%`}</div>
             </div>
           </div>
           <p className="cv-nota">

@@ -27,7 +27,7 @@ export default function Calculadora() {
       <div className="cl-campo">
         <div className="cl-campo-row">
           <label className="cl-campo-l" htmlFor="cl-txs">Operaciones al mes</label>
-          <span className="cl-campo-v">{txs}</span>
+          <span className="cl-campo-v" translate="no">{txs}</span>
         </div>
         <input
           id="cl-txs"
@@ -40,7 +40,7 @@ export default function Calculadora() {
       <div className="cl-campo">
         <div className="cl-campo-row">
           <label className="cl-campo-l" htmlFor="cl-avg">Monto promedio</label>
-          <span className="cl-campo-v">{mxn(avg)}</span>
+          <span className="cl-campo-v" translate="no">{mxn(avg)}</span>
         </div>
         <input
           id="cl-avg"
@@ -53,7 +53,7 @@ export default function Calculadora() {
       <div className="cl-campo">
         <div className="cl-campo-row">
           <label className="cl-campo-l" htmlFor="cl-tarifa">Tu comisión por operación</label>
-          <span className="cl-campo-v">{tarifa.toFixed(1)}%</span>
+          <span className="cl-campo-v" translate="no">{`${tarifa.toFixed(1)}%`}</span>
         </div>
         <input
           id="cl-tarifa"
@@ -61,7 +61,7 @@ export default function Calculadora() {
           value={tarifa} onChange={(e) => setTarifa(Number(e.target.value))}
           className="cl-rango"
         />
-        <div className="cl-escala">
+        <div className="cl-escala" translate="no">
           <span>0%</span>
           <span>típico 1.9%–2.5%</span>
           <span>5%</span>
@@ -70,8 +70,8 @@ export default function Calculadora() {
 
       <div className="cl-resultado">
         <div className="cl-resultado-label">Ganancia estimada</div>
-        <div className="cl-resultado-valor">{mxn(ganancia)}</div>
-        <div className="cl-resultado-sub">al mes · {mxn(volumen)} movidos</div>
+        <div className="cl-resultado-valor" translate="no">{mxn(ganancia)}</div>
+        <div className="cl-resultado-sub">{`al mes · ${mxn(volumen)} movidos`}</div>
       </div>
 
       <style>{`

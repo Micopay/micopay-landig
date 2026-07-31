@@ -67,19 +67,19 @@ export default function Proveedores() {
                 <span className={`pv-badge-tier ${TIER_CLASS[m.tier]}`}>{m.tier}</span>
               </div>
               <div>
-                <h3 className="pv-nombre">{m.name}</h3>
-                <div className="pv-meta"><span className="ms">location_on</span>{m.km} km · {m.walk} min a pie</div>
+                <h3 className="pv-nombre" translate="no">{m.name}</h3>
+                <div className="pv-meta"><span className="ms">location_on</span>{`${m.km} km · ${m.walk} min a pie`}</div>
               </div>
               <div className="pv-recibes">
-                <div className="pv-recibes-label">Recibes con {USDC_EJEMPLO} USDC</div>
-                <div className="pv-recibes-valor">{mxn(payout)}</div>
+                <div className="pv-recibes-label">{`Recibes con ${USDC_EJEMPLO} USDC`}</div>
+                <div className="pv-recibes-valor" translate="no">{mxn(payout)}</div>
               </div>
               <div className="pv-datos">
-                <div><span className="pv-datos-k">Tarifa </span><strong>{m.rate}%</strong></div>
-                <div><span className="pv-datos-k">Éxito </span><strong>{m.completion}%</strong></div>
+                <div><span className="pv-datos-k">Tarifa </span><strong translate="no">{`${m.rate}%`}</strong></div>
+                <div><span className="pv-datos-k">Éxito </span><strong translate="no">{`${m.completion}%`}</strong></div>
               </div>
               <div className="pv-pie">
-                <span className="pv-pie-t">{m.trades.toLocaleString('es-MX')} operaciones</span>
+                <span className="pv-pie-t">{`${m.trades.toLocaleString('es-MX')} operaciones`}</span>
               </div>
             </div>
           );

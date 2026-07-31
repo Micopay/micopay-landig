@@ -249,15 +249,23 @@ export default function Contact() {
                 {enviando ? 'Enviando…' : 'Unirme a la lista de espera'}
                 {!enviando && <span className="ms">arrow_forward</span>}
               </button>
+
+              {/* La LFPDPPP pide que el aviso sea visible en el momento de
+                  recabar los datos, no solo enlazado desde el pie. */}
+              <p className="ct-legal">
+                Al registrarte aceptas los <a href="/terms">Términos de uso</a> y el{' '}
+                <a href="/privacy">Aviso de privacidad</a>. Puedes pedir que borremos tus datos
+                cuando quieras.
+              </p>
             </form>
           ) : (
             <div className="card ct-gracias">
               <span className="ct-gracias-tag">Ya estás en la lista</span>
-              <h3 className="ct-gracias-t">Gracias, {nombre.split(' ')[0]}.</h3>
+              <h3 className="ct-gracias-t">{`Gracias, ${nombre.split(' ')[0]}.`}</h3>
               <p className="ct-gracias-p">Estás en la lista de espera. Te avisamos por correo apenas haya movimiento para ti.</p>
               <div className="ct-gracias-detalle">
-                <div>→ confirmación a {email}</div>
-                <div>→ interés: {interes.map((k) => INTERESES.find((o) => o.key === k)?.label).join(', ')}</div>
+                <div>→ confirmación a <span translate="no">{email}</span></div>
+                <div>{`→ interés: ${interes.map((k) => INTERESES.find((o) => o.key === k)?.label).join(', ')}`}</div>
               </div>
               <button
                 type="button"
@@ -304,6 +312,8 @@ export default function Contact() {
         .ct-pill .ms { font-size: 18px; }
 
         .ct-captcha-aviso { font-size: 12.5px; color: var(--gris-2); line-height: 1.6; }
+        .ct-legal { font-size: 12.5px; color: var(--gris-2); line-height: 1.6; margin-top: -6px; }
+        .ct-legal a { color: var(--verde); font-weight: 700; }
         .ct-alerta { padding: 13px 15px; border: 1px solid #e6a5a5; background: #fdecec; border-radius: 12px; font-size: 13.5px; color: var(--tinta); }
 
         .ct-gracias { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; box-shadow: 0 30px 60px -40px rgba(11,30,38,.4); }
