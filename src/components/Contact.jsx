@@ -253,9 +253,7 @@ export default function Contact() {
               {/* La LFPDPPP pide que el aviso sea visible en el momento de
                   recabar los datos, no solo enlazado desde el pie. */}
               <p className="ct-legal">
-                Al registrarte aceptas los <a href="/terms">Términos de uso</a> y el{' '}
-                <a href="/privacy">Aviso de privacidad</a>. Puedes pedir que borremos tus datos
-                cuando quieras.
+                Al registrarte aceptas los <a href="/terms">Términos de uso</a> y el <a href="/privacy">Aviso de privacidad</a>. Puedes pedir que borremos tus datos cuando quieras.
               </p>
             </form>
           ) : (
