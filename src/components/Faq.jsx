@@ -48,13 +48,13 @@ export default function Faq() {
 
       <style>{`
         .fq-lista { display: grid; gap: 12px; }
-        .fq-item { border: 1px solid var(--linea); border-radius: 20px; overflow: hidden; background: #F9FCFB; }
+        .fq-item { border: var(--borde); border-radius: var(--r-sm); overflow: hidden; background: var(--papel); }
         .fq-pregunta {
           width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px;
           padding: 22px 26px; background: transparent; border: none; cursor: pointer; text-align: left;
         }
-        .fq-q { font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--tinta); }
-        .fq-icono { color: var(--verde-claro); font-size: 24px; flex-shrink: 0; transition: transform .25s; }
+        .fq-q { font-family: var(--font-display); font-weight: 700; font-size: 16.5px; color: var(--tinta); }
+        .fq-icono { color: var(--naranja); font-size: 24px; flex-shrink: 0; transition: transform .25s; }
         .fq-respuesta { padding: 0 26px; overflow: hidden; transition: all .28s ease; }
         .fq-a { color: var(--gris); font-size: 15.5px; }
       `}</style>

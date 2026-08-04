@@ -79,33 +79,40 @@ export default function Calculadora() {
       </div>
 
       <style>{`
-        .cl-card { background: #fff; border: 1px solid var(--linea); border-radius: 28px; padding: 34px; box-shadow: 0 30px 60px -40px rgba(11,30,38,.4); }
-        .cl-t { font-size: 21px; letter-spacing: -.02em; margin-bottom: 8px; }
+        .cl-card {
+          background: var(--papel); border: var(--borde); border-radius: var(--r-sm);
+          padding: 30px; box-shadow: 8px 8px 0 var(--tinta);
+        }
+        .cl-t { font-size: 21px; letter-spacing: -.01em; margin-bottom: 8px; }
         .cl-nota { font-size: 13px; color: var(--gris-2); margin-bottom: 22px; }
-        .cl-campo { margin-bottom: 24px; }
-        .cl-campo-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+        .cl-campo { margin-bottom: 22px; }
+        .cl-campo-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 9px; }
         .cl-campo-l { font-size: 14px; font-weight: 600; color: var(--gris); white-space: nowrap; }
-        .cl-campo-v { font-family: var(--font-display); font-weight: 800; font-size: 18px; color: var(--verde); }
-        .cl-rango { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 999px; background: #dce7e3; outline: none; }
+        .cl-campo-v { font-family: var(--font-display); font-weight: 800; font-size: 18px; color: var(--tinta); }
+        .cl-rango {
+          width: 100%; -webkit-appearance: none; appearance: none; height: 8px;
+          border-radius: 0; background: var(--fondo); border: 2px solid var(--tinta); outline: none;
+        }
         .cl-rango::-webkit-slider-thumb {
-          -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%;
-          background: var(--verde); border: 4px solid #fff; box-shadow: 0 2px 8px rgba(0,105,76,.35); cursor: pointer;
+          -webkit-appearance: none; width: 20px; height: 20px; border-radius: 0;
+          background: var(--naranja); border: 2px solid var(--tinta); cursor: pointer;
         }
         .cl-rango::-moz-range-thumb {
-          width: 16px; height: 16px; border-radius: 50%; background: var(--verde); border: 4px solid #fff;
-          box-shadow: 0 2px 8px rgba(0,105,76,.35); cursor: pointer;
+          width: 16px; height: 16px; border-radius: 0; background: var(--naranja);
+          border: 2px solid var(--tinta); cursor: pointer;
         }
         .cl-escala {
           display: flex; justify-content: space-between; margin-top: 7px;
           font-size: 11px; color: var(--gris-2); font-weight: 600;
         }
+        /* El resultado es dinero: tinta sólida y la cifra en naranja */
         .cl-resultado {
-          background: linear-gradient(140deg, var(--verde), var(--verde-claro));
-          border-radius: 22px; padding: 26px; text-align: center; color: #fff;
+          background: var(--tinta); border-radius: var(--r-sm);
+          padding: 24px; text-align: center; color: var(--papel);
         }
-        .cl-resultado-label { font-size: 13px; font-weight: 700; opacity: .82; margin-bottom: 6px; }
-        .cl-resultado-valor { font-family: var(--font-display); font-weight: 800; font-size: 40px; letter-spacing: -.03em; }
-        .cl-resultado-sub { font-size: 13px; opacity: .82; margin-top: 4px; }
+        .cl-resultado-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gris-3); margin-bottom: 6px; }
+        .cl-resultado-valor { font-family: var(--font-display); font-weight: 800; font-size: 40px; letter-spacing: -.03em; color: var(--naranja-claro); font-variation-settings: "wdth" 110; }
+        .cl-resultado-sub { font-size: 13px; color: var(--gris-3); margin-top: 4px; }
       `}</style>
     </div>
   );

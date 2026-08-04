@@ -281,27 +281,27 @@ export default function Contact() {
       </div>
 
       <style>{`
-        .ct-section { padding: 96px 0; background: #fff; border-top: 1px solid var(--linea); }
+        .ct-section { padding: 88px 0; background: var(--papel); border-top: 2px solid var(--tinta); }
         .ct-waitlist-badge {
-          display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px 7px 10px;
-          border-radius: 999px; background: var(--verde-suave); border: 1px solid var(--verde-borde);
-          color: var(--verde); font-size: 13px; font-weight: 700; margin-bottom: 16px;
+          display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 10px;
+          border-radius: var(--r-sm); background: var(--naranja-suave); border: 2px solid var(--tinta);
+          color: var(--tinta); font-size: 12.5px; font-weight: 700; margin-bottom: 16px;
         }
         .ct-waitlist-badge .ms { font-size: 16px; }
         .ct-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.2fr); gap: clamp(36px,6vw,80px); align-items: start; }
-        .ct-h2 { font-family: var(--font-display); font-weight: 800; letter-spacing: -.03em; font-size: clamp(28px, 3.2vw, 38px); line-height: 1.1; margin-bottom: 16px; }
+        .ct-h2 { font-family: var(--font-display); font-weight: 800; letter-spacing: -.02em; font-size: clamp(28px, 3.2vw, 38px); line-height: 1.04; text-transform: uppercase; font-variation-settings: "wdth" 112; margin-bottom: 16px; }
         .ct-lead-p { color: var(--gris); font-size: 16px; max-width: 30em; }
 
-        .ct-form { display: flex; flex-direction: column; gap: 20px; box-shadow: 0 30px 60px -40px rgba(11,30,38,.4); }
+        .ct-form { display: flex; flex-direction: column; gap: 20px; box-shadow: 8px 8px 0 var(--tinta); }
         .ct-trampa { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
         .ct-fila-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
         .ct-campo { display: flex; flex-direction: column; gap: 7px; }
         .ct-campo-l { font-size: 12.5px; font-weight: 700; color: var(--gris-2); letter-spacing: .02em; }
         .ct-input {
-          width: 100%; background: var(--fondo); border: 1px solid var(--linea); color: var(--tinta);
-          font-size: 15px; padding: 13px 15px; border-radius: 12px; outline: none; transition: border-color .15s ease;
+          width: 100%; background: var(--fondo); border: 2px solid var(--tinta); color: var(--tinta);
+          font-size: 15px; padding: 12px 14px; border-radius: var(--r-sm); outline: none; transition: border-color .15s ease;
         }
-        .ct-input:focus { border-color: var(--verde-claro); }
+        .ct-input:focus { border-color: var(--naranja); }
         .ct-textarea { min-height: 110px; resize: vertical; line-height: 1.55; }
         .ct-err { font-size: 12px; color: #c0392b; }
 
@@ -312,10 +312,10 @@ export default function Contact() {
         .ct-captcha-aviso { font-size: 12.5px; color: var(--gris-2); line-height: 1.6; }
         .ct-legal { font-size: 12.5px; color: var(--gris-2); line-height: 1.6; margin-top: -6px; }
         .ct-legal a { color: var(--verde); font-weight: 700; }
-        .ct-alerta { padding: 13px 15px; border: 1px solid #e6a5a5; background: #fdecec; border-radius: 12px; font-size: 13.5px; color: var(--tinta); }
+        .ct-alerta { padding: 12px 14px; border: 2px solid var(--tinta); background: #fdecec; border-radius: var(--r-sm); font-size: 13.5px; color: var(--tinta); }
 
-        .ct-gracias { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; box-shadow: 0 30px 60px -40px rgba(11,30,38,.4); }
-        .ct-gracias-tag { color: var(--verde-claro); letter-spacing: .08em; text-transform: uppercase; font-size: 11px; font-weight: 800; }
+        .ct-gracias { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; box-shadow: 8px 8px 0 var(--tinta); }
+        .ct-gracias-tag { color: var(--papel); background: var(--naranja); padding: 3px 8px; letter-spacing: .12em; text-transform: uppercase; font-size: 10px; font-weight: 700; }
         .ct-gracias-t { font-size: clamp(22px, 2.4vw, 28px); }
         .ct-gracias-p { color: var(--gris); }
         .ct-gracias-detalle { color: var(--gris-2); font-size: 13.5px; line-height: 1.9; }

@@ -66,17 +66,19 @@ export default function Proveedores() {
                 <div className="pv-icono"><span className="ms">{m.icon}</span></div>
                 <span className={`pv-badge-tier ${TIER_CLASS[m.tier]}`}>{m.tier}</span>
               </div>
-              <div>
-                <h3 className="pv-nombre" translate="no">{m.name}</h3>
-                <div className="pv-meta"><span className="ms">location_on</span>{`${m.km} km · ${m.walk} min a pie`}</div>
-              </div>
-              <div className="pv-recibes">
-                <div className="pv-recibes-label">{`Recibes con ${USDC_EJEMPLO} USDC`}</div>
-                <div className="pv-recibes-valor" translate="no">{mxn(payout)}</div>
-              </div>
-              <div className="pv-datos">
-                <div><span className="pv-datos-k">Tarifa </span><strong translate="no">{`${m.rate}%`}</strong></div>
-                <div><span className="pv-datos-k">Éxito </span><strong translate="no">{`${m.completion}%`}</strong></div>
+              <div className="pv-cuerpo">
+                <div>
+                  <h3 className="pv-nombre" translate="no">{m.name}</h3>
+                  <div className="pv-meta"><span className="ms">location_on</span>{`${m.km} km · ${m.walk} min a pie`}</div>
+                </div>
+                <div className="pv-recibes">
+                  <div className="pv-recibes-label">{`Recibes con ${USDC_EJEMPLO} USDC`}</div>
+                  <div className="pv-recibes-valor" translate="no">{mxn(payout)}</div>
+                </div>
+                <div className="pv-datos">
+                  <div><span className="pv-datos-k">Tarifa </span><strong translate="no">{`${m.rate}%`}</strong></div>
+                  <div><span className="pv-datos-k">Éxito </span><strong translate="no">{`${m.completion}%`}</strong></div>
+                </div>
               </div>
               <div className="pv-pie">
                 <span className="pv-pie-t">{`${m.trades.toLocaleString('es-MX')} operaciones`}</span>
@@ -87,29 +89,43 @@ export default function Proveedores() {
       </div>
 
       <style>{`
-        .pv-filtros { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
-        .pv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+        .pv-filtros { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+        .pv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        /* Cada tarjeta es un letrero: canto vivo, borde de tinta, sombra sólida */
         .pv-card {
-          background: #fff; border: 1px solid var(--linea); border-radius: 24px; padding: 24px;
-          display: flex; flex-direction: column; gap: 16px; transition: box-shadow .25s, transform .25s;
+          background: var(--papel); border: var(--borde); border-radius: var(--r-sm); padding: 0;
+          display: flex; flex-direction: column; box-shadow: var(--sombra);
+          transition: transform .12s ease-out, box-shadow .12s ease-out;
         }
-        .pv-card:hover { box-shadow: 0 24px 44px -26px rgba(11,30,38,.35); transform: translateY(-3px); }
-        .pv-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
-        .pv-icono { width: 44px; height: 44px; border-radius: 14px; background: var(--verde-suave); display: flex; align-items: center; justify-content: center; color: var(--verde); }
-        .pv-badge-tier { padding: 5px 11px; font-size: 11px; font-weight: 800; border-radius: 999px; letter-spacing: .03em; }
-        .pv-tier-maestro { background: var(--verde); color: #fff; }
-        .pv-tier-avanzado { background: var(--verde-suave); color: var(--verde); }
-        .pv-tier-inicial { background: #f0f4f2; color: #5f7681; }
-        .pv-nombre { font-size: 17px; letter-spacing: -.015em; margin-bottom: 4px; }
-        .pv-meta { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--gris-2); font-weight: 600; }
+        .pv-card-top {
+          display: flex; align-items: center; justify-content: space-between; gap: 12px;
+          padding: 10px 14px; border-bottom: 2px solid var(--tinta); background: var(--verde-suave);
+        }
+        /* El ícono ya no vive en un tile redondeado propio */
+        .pv-icono { display: flex; align-items: center; color: var(--verde); font-size: 20px; }
+        .pv-badge-tier {
+          padding: 3px 9px; font-size: 10px; font-weight: 700; border-radius: var(--r-sm);
+          letter-spacing: .1em; text-transform: uppercase; border: 1.5px solid var(--tinta);
+        }
+        .pv-tier-maestro { background: var(--tinta); color: var(--papel); }
+        .pv-tier-avanzado { background: var(--naranja-suave); color: var(--tinta); }
+        .pv-tier-inicial { background: var(--papel); color: var(--tinta); }
+        .pv-cuerpo { padding: 16px 14px; display: flex; flex-direction: column; gap: 14px; }
+        .pv-nombre { font-size: 17px; letter-spacing: -.01em; margin-bottom: 3px; }
+        .pv-meta { display: flex; align-items: center; gap: 5px; font-size: 12.5px; color: var(--gris); font-weight: 600; }
         .pv-meta .ms { font-size: 15px; }
-        .pv-recibes { background: var(--fondo); border-radius: 16px; padding: 14px 16px; }
-        .pv-recibes-label { font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gris-2); margin-bottom: 2px; }
-        .pv-recibes-valor { font-family: var(--font-display); font-weight: 800; font-size: 21px; letter-spacing: -.02em; color: var(--verde); }
-        .pv-datos { display: flex; gap: 18px; font-size: 13px; }
+        /* La cifra en pesos, invertida: es el renglón que se lee de lejos */
+        .pv-recibes { background: var(--tinta); border-radius: var(--r-sm); padding: 12px 14px; }
+        .pv-recibes-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gris-3); margin-bottom: 2px; }
+        .pv-recibes-valor { font-family: var(--font-display); font-weight: 800; font-size: 22px; letter-spacing: -.02em; color: var(--naranja-claro); font-variation-settings: "wdth" 108; }
+        .pv-datos { display: flex; gap: 16px; font-size: 13px; }
         .pv-datos-k { color: var(--gris-2); font-weight: 600; }
-        .pv-pie { padding-top: 14px; border-top: 1px solid var(--linea-suave); }
-        .pv-pie-t { font-size: 12px; color: var(--gris-2); font-weight: 600; }
+        .pv-pie { padding: 9px 14px; border-top: 2px solid var(--tinta); background: var(--fondo); }
+        .pv-pie-t { font-size: 11.5px; color: var(--gris); font-weight: 600; }
+
+        @media (hover: hover) and (pointer: fine) {
+          .pv-card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--tinta); }
+        }
       `}</style>
     </div>
   );

@@ -16,13 +16,14 @@
 <style>
   .cta-wrap { padding: 96px 24px; }
   .cta-caja {
-    background: var(--tinta); border-radius: 32px; padding: 72px 56px;
+    background: var(--tinta); border-radius: var(--r-sm); padding: 60px 48px;
     display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap;
-    position: relative; overflow: hidden;
+    position: relative; overflow: hidden; border: var(--borde);
+    box-shadow: 10px 10px 0 var(--naranja);
   }
-  .glow { position: absolute; top: -80px; right: -40px; width: 320px; height: 320px; border-radius: 999px; background: rgba(93,202,165,.18); filter: blur(80px); }
+  .glow { display: none; }
   .cta-texto { position: relative; max-width: 32em; }
-  .h2 { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; color: #fff; margin-bottom: 14px; }
-  .cta-p { color: #9fb4bd; font-size: 17px; }
+  .h2 { font-size: clamp(28px, 3.4vw, 40px); color: var(--papel); margin-bottom: 14px; }
+  .cta-p { color: var(--gris-3); font-size: 17px; }
   .cta-btn { position: relative; }
 </style>

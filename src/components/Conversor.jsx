@@ -34,16 +34,12 @@ export default function Conversor() {
 
   return (
     <div className="cv-wrap">
-      <div className="cv-glow cv-glow-1" />
-      <div className="cv-glow cv-glow-2" />
-
       <div className="cv-card">
         <div className="cv-mapa">
           <div className="cv-grid-lines" />
           <div className="cv-halo" />
 
           <div className="cv-pin-centro">
-            <span className="cv-pin-ping" />
             <span className="cv-pin-nucleo">
               <span className="ms">person_pin_circle</span>
             </span>
@@ -64,10 +60,10 @@ export default function Conversor() {
               Adorno, no contenido. */}
           <div className="cv-nodo">
             <svg className="cv-hongo" viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false">
-              <path d="M23 30v17a9 7 0 0 0 18 0V30Z" fill="#1D9E75" />
-              <path d="M4 33C4 16 17 5 32 5s28 11 28 28Z" fill="#5DCAA5" />
-              <circle cx="20" cy="21" r="3.4" fill="#0C2119" opacity=".38" />
-              <circle cx="41" cy="16" r="4.2" fill="#0C2119" opacity=".38" />
+              <path d="M23 30v17a9 7 0 0 0 18 0V30Z" fill="#F5F1E8" stroke="#16130F" stroke-width="2" />
+              <path d="M4 33C4 16 17 5 32 5s28 11 28 28Z" fill="#D9420B" stroke="#16130F" stroke-width="2" />
+              <circle cx="20" cy="21" r="3.4" fill="#16130F" />
+              <circle cx="41" cy="16" r="4.2" fill="#16130F" />
             </svg>
             <span className="cv-nodo-t" translate="no">Red micelial MicoPay</span>
           </div>
@@ -110,67 +106,67 @@ export default function Conversor() {
 
       <style>{`
         .cv-wrap { position: relative; }
-        .cv-glow { position: absolute; border-radius: 999px; filter: blur(60px); }
-        .cv-glow-1 { top: -30px; right: -20px; width: 180px; height: 180px; background: rgba(93,202,165,.35); }
-        .cv-glow-2 { bottom: -40px; left: -30px; width: 220px; height: 220px; background: rgba(0,105,76,.2); filter: blur(70px); }
 
         .cv-card {
-          position: relative; background: #0B1420; border-radius: 32px; padding: 18px;
-          box-shadow: 0 40px 80px -30px rgba(11,30,38,.55); border: 1px solid rgba(93,202,165,.18);
+          position: relative; background: var(--papel); border-radius: var(--r-sm); padding: 14px;
+          box-shadow: 8px 8px 0 var(--tinta); border: var(--borde);
         }
         .cv-mapa {
-          position: relative; height: 300px; border-radius: 22px; overflow: hidden;
-          background: linear-gradient(135deg, #123326 0%, #0C2119 55%, #143A2B 100%);
+          position: relative; height: 300px; border-radius: var(--r-sm); overflow: hidden;
+          background: var(--verde); border: 2px solid var(--tinta);
         }
         .cv-grid-lines {
           position: absolute; inset: 0;
-          background-image: linear-gradient(rgba(93,202,165,.14) 1px, transparent 1px), linear-gradient(90deg, rgba(93,202,165,.14) 1px, transparent 1px);
-          background-size: 52px 52px;
+          background-image: linear-gradient(rgba(245,241,232,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(245,241,232,.16) 1px, transparent 1px);
+          background-size: 44px 44px;
         }
-        .cv-halo { position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(93,202,165,.22), transparent 62%); }
+        .cv-halo { display: none; }
         .cv-pin-centro { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); display: flex; align-items: center; justify-content: center; }
-        .cv-pin-ping { position: absolute; width: 64px; height: 64px; border-radius: 999px; background: rgba(93,202,165,.35); animation: ping 2.8s cubic-bezier(0,0,.2,1) infinite; }
-        .cv-pin-nucleo { position: relative; width: 56px; height: 56px; border-radius: 999px; background: #0B1420; border: 3px solid #5DCAA5; display: flex; align-items: center; justify-content: center; color: #5DCAA5; font-size: 26px; }
+        .cv-pin-nucleo { position: relative; width: 54px; height: 54px; border-radius: var(--r-full); background: var(--naranja); border: 2px solid var(--tinta); display: flex; align-items: center; justify-content: center; color: var(--papel); font-size: 26px; }
         .cv-chip {
-          position: absolute; display: flex; align-items: center; gap: 8px; padding: 7px 12px 7px 8px;
-          border-radius: 999px; background: rgba(11,20,32,.9); border: 1px solid rgba(93,202,165,.3);
-          animation: floaty 6s ease-in-out infinite;
+          position: absolute; display: flex; align-items: center; gap: 8px; padding: 5px 10px 5px 6px;
+          border-radius: var(--r-sm); background: var(--papel); border: 2px solid var(--tinta);
+          box-shadow: var(--sombra-sm);
         }
-        .cv-chip-1 { top: 22%; left: 26%; }
-        .cv-chip-2 { bottom: 26%; right: 16%; animation-duration: 7.5s; }
-        .cv-chip-icon { width: 24px; height: 24px; border-radius: 999px; background: #5DCAA5; display: flex; align-items: center; justify-content: center; font-size: 15px; color: #0B1420; }
-        .cv-chip-icon--alt { background: #1D9E75; color: #fff; }
-        .cv-chip-t { font-size: 12px; font-weight: 800; color: #5DCAA5; }
+        .cv-chip-1 { top: 20%; left: 24%; }
+        .cv-chip-2 { bottom: 24%; right: 14%; }
+        .cv-chip-icon { width: 22px; height: 22px; border-radius: var(--r-sm); background: var(--tinta); display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--papel); }
+        .cv-chip-icon--alt { background: var(--naranja); color: var(--papel); }
+        .cv-chip-t { font-size: 12px; font-weight: 700; color: var(--tinta); }
         .cv-nodo {
           position: absolute; bottom: 8%; left: 8%;
           display: flex; flex-direction: column; align-items: center; gap: 5px;
-          animation: floaty 8s ease-in-out infinite;
         }
         .cv-hongo { width: 58px; height: auto; }
         .cv-nodo-t {
-          font-size: 9.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
-          color: #5DCAA5; white-space: nowrap; opacity: .85;
+          font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+          color: var(--papel); background: var(--tinta); padding: 3px 6px; white-space: nowrap;
         }
 
-        .cv-panel { padding: 22px 8px 8px; }
-        .cv-panel-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-        .cv-panel-label { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #6E8794; }
-        .cv-panel-rate { font-size: 12px; font-weight: 700; color: #5DCAA5; }
+        .cv-panel { padding: 20px 6px 6px; }
+        .cv-panel-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+        .cv-panel-label { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--papel); background: var(--tinta); padding: 3px 8px; }
+        .cv-panel-rate { font-size: 12px; font-weight: 700; color: var(--gris); }
         .cv-input-row {
-          display: flex; align-items: center; gap: 12px; background: #111C28;
-          border: 1px solid rgba(93,202,165,.2); border-radius: 18px; padding: 14px 18px;
+          display: flex; align-items: center; gap: 12px; background: var(--fondo);
+          border: var(--borde); border-radius: var(--r-sm); padding: 12px 16px;
         }
-        .cv-moneda { font-size: 13px; font-weight: 800; color: #5DCAA5; background: rgba(93,202,165,.14); padding: 6px 10px; border-radius: 10px; }
+        .cv-moneda { font-size: 12px; font-weight: 700; color: var(--papel); background: var(--verde); padding: 5px 9px; border-radius: var(--r-sm); }
         .cv-input {
           flex: 1; min-width: 0; background: transparent; border: none; outline: none;
-          color: #E8F0F5; font-size: 26px; font-weight: 800; font-family: var(--font-display); text-align: right;
+          color: var(--tinta); font-size: 26px; font-weight: 700; font-family: var(--font-display);
+          font-variation-settings: "wdth" 100; text-align: right;
         }
-        .cv-resumen { display: flex; align-items: center; justify-content: space-between; padding: 16px 4px 4px; }
-        .cv-resumen-label { font-size: 12px; color: #6E8794; font-weight: 600; }
-        .cv-resumen-valor { font-family: var(--font-display); font-weight: 800; font-size: 30px; color: #fff; letter-spacing: -.02em; }
+        /* La cifra en pesos es lo único naranja del panel: es el efectivo */
+        .cv-resumen {
+          display: flex; align-items: center; justify-content: space-between;
+          margin-top: 14px; padding: 14px 16px; background: var(--tinta);
+        }
+        .cv-resumen-label { font-size: 11px; color: var(--gris-3); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+        .cv-resumen-valor { font-family: var(--font-display); font-weight: 800; font-size: 30px; color: var(--naranja-claro); letter-spacing: -.02em; font-variation-settings: "wdth" 108; }
         .cv-resumen-derecha { text-align: right; }
-        .cv-resumen-comision { font-size: 16px; font-weight: 800; color: #5DCAA5; }
-        .cv-nota { margin: 12px 4px 0; font-size: 11.5px; line-height: 1.5; color: #6E8794; }
+        .cv-resumen-comision { font-size: 16px; font-weight: 700; color: var(--papel); }
+        .cv-nota { margin: 12px 2px 0; font-size: 11.5px; line-height: 1.5; color: var(--gris-2); }
       `}</style>
     </div>
   );
