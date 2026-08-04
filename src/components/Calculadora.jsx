@@ -23,6 +23,10 @@ export default function Calculadora() {
   return (
     <div className="cl-card">
       <h3 className="cl-t">Calcula tu ganancia</h3>
+      <p className="cl-nota">
+        Proyección ilustrativa — no hay operaciones reales todavía; los números cambian cuando
+        el producto esté en operación.
+      </p>
 
       <div className="cl-campo">
         <div className="cl-campo-row">
@@ -76,7 +80,8 @@ export default function Calculadora() {
 
       <style>{`
         .cl-card { background: #fff; border: 1px solid var(--linea); border-radius: 28px; padding: 34px; box-shadow: 0 30px 60px -40px rgba(11,30,38,.4); }
-        .cl-t { font-size: 21px; letter-spacing: -.02em; margin-bottom: 26px; }
+        .cl-t { font-size: 21px; letter-spacing: -.02em; margin-bottom: 8px; }
+        .cl-nota { font-size: 13px; color: var(--gris-2); margin-bottom: 22px; }
         .cl-campo { margin-bottom: 24px; }
         .cl-campo-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
         .cl-campo-l { font-size: 14px; font-weight: 600; color: var(--gris); white-space: nowrap; }

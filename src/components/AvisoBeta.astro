@@ -1,0 +1,27 @@
+---
+/* Aviso de que el producto corre en testnet de Stellar: no se mueve dinero
+   real todavía. Va justo debajo del Nav, antes del Hero, a propósito — es la
+   primera franja que se ve y el copy del Hero está en presente ("Cambia
+   USDC por pesos en efectivo"), así que el aviso tiene que verse antes de
+   leer esa promesa. Ver [[terms.astro]] §2, que ya dice lo mismo por escrito. */
+---
+<div class="aviso-beta">
+  <div class="container aviso-beta-in">
+    <span class="ms">science</span>
+    <span>
+      <strong>Beta técnica en red de prueba.</strong>
+      No se mueve dinero real: los saldos son simulados y los tokens no tienen valor.
+    </span>
+  </div>
+</div>
+
+<style>
+  .aviso-beta { background: #fff8e6; border-bottom: 1px solid #f0d99b; }
+  .aviso-beta-in {
+    padding: 11px 24px; display: flex; align-items: center; justify-content: center;
+    gap: 9px; flex-wrap: wrap; text-align: center;
+  }
+  .aviso-beta-in .ms { font-size: 18px; color: #8a6417; flex-shrink: 0; }
+  .aviso-beta-in span:last-child { font-size: 13.5px; font-weight: 600; color: #8a6417; }
+  .aviso-beta-in strong { font-weight: 800; }
+</style>
