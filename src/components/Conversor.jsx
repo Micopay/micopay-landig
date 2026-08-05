@@ -166,7 +166,7 @@ export default function Conversor() {
         .cv-resumen-valor { font-family: var(--font-display); font-weight: 800; font-size: 30px; color: var(--naranja-claro); letter-spacing: -.02em; font-variation-settings: "wdth" 108; }
         .cv-resumen-derecha { text-align: right; }
         .cv-resumen-comision { font-size: 16px; font-weight: 700; color: var(--papel); }
-        .cv-nota { margin: 12px 2px 0; font-size: 11.5px; line-height: 1.5; color: var(--gris-2); }
+        .cv-nota { margin: 12px 2px 0; font-size: 11.5px; line-height: 1.5; color: var(--gris); }
       `}</style>
     </div>
   );

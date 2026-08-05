@@ -119,7 +119,7 @@ export default function Proveedores() {
         .pv-recibes-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gris-3); margin-bottom: 2px; }
         .pv-recibes-valor { font-family: var(--font-display); font-weight: 800; font-size: 22px; letter-spacing: -.02em; color: var(--naranja-claro); font-variation-settings: "wdth" 108; }
         .pv-datos { display: flex; gap: 16px; font-size: 13px; }
-        .pv-datos-k { color: var(--gris-2); font-weight: 600; }
+        .pv-datos-k { color: var(--gris); font-weight: 600; }
         .pv-pie { padding: 9px 14px; border-top: 2px solid var(--tinta); background: var(--fondo); }
         .pv-pie-t { font-size: 11.5px; color: var(--gris); font-weight: 600; }
 

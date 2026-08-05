@@ -296,7 +296,7 @@ export default function Contact() {
         .ct-trampa { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
         .ct-fila-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
         .ct-campo { display: flex; flex-direction: column; gap: 7px; }
-        .ct-campo-l { font-size: 12.5px; font-weight: 700; color: var(--gris-2); letter-spacing: .02em; }
+        .ct-campo-l { font-size: 12.5px; font-weight: 700; color: var(--gris); letter-spacing: .02em; }
         .ct-input {
           width: 100%; background: var(--fondo); border: 2px solid var(--tinta); color: var(--tinta);
           font-size: 15px; padding: 12px 14px; border-radius: var(--r-sm); outline: none; transition: border-color .15s ease;
@@ -309,8 +309,8 @@ export default function Contact() {
         .ct-pill { display: inline-flex; align-items: center; gap: 8px; }
         .ct-pill .ms { font-size: 18px; }
 
-        .ct-captcha-aviso { font-size: 12.5px; color: var(--gris-2); line-height: 1.6; }
-        .ct-legal { font-size: 12.5px; color: var(--gris-2); line-height: 1.6; margin-top: -6px; }
+        .ct-captcha-aviso { font-size: 12.5px; color: var(--gris); line-height: 1.6; }
+        .ct-legal { font-size: 12.5px; color: var(--gris); line-height: 1.6; margin-top: -6px; }
         .ct-legal a { color: var(--verde); font-weight: 700; }
         .ct-alerta { padding: 12px 14px; border: 2px solid var(--tinta); background: #fdecec; border-radius: var(--r-sm); font-size: 13.5px; color: var(--tinta); }
 
@@ -318,7 +318,7 @@ export default function Contact() {
         .ct-gracias-tag { color: var(--papel); background: var(--naranja); padding: 3px 8px; letter-spacing: .12em; text-transform: uppercase; font-size: 10px; font-weight: 700; }
         .ct-gracias-t { font-size: clamp(22px, 2.4vw, 28px); }
         .ct-gracias-p { color: var(--gris); }
-        .ct-gracias-detalle { color: var(--gris-2); font-size: 13.5px; line-height: 1.9; }
+        .ct-gracias-detalle { color: var(--gris); font-size: 13.5px; line-height: 1.9; }
 
         @media (max-width: 880px) { .ct-grid { grid-template-columns: 1fr; } }
         @media (max-width: 520px) { .ct-fila-2 { grid-template-columns: 1fr; } }
