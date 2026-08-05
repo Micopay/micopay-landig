@@ -61,7 +61,7 @@ export default function Conversor() {
           <div className="cv-nodo">
             <svg className="cv-hongo" viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false">
               <path d="M23 30v17a9 7 0 0 0 18 0V30Z" fill="#F5F1E8" stroke="#16130F" stroke-width="2" />
-              <path d="M4 33C4 16 17 5 32 5s28 11 28 28Z" fill="#D9420B" stroke="#16130F" stroke-width="2" />
+              <path className="cv-hongo-sombrero" d="M4 33C4 16 17 5 32 5s28 11 28 28Z" stroke="#16130F" stroke-width="2" />
               <circle cx="20" cy="21" r="3.4" fill="#16130F" />
               <circle cx="41" cy="16" r="4.2" fill="#16130F" />
             </svg>
@@ -138,6 +138,10 @@ export default function Conversor() {
           display: flex; flex-direction: column; align-items: center; gap: 5px;
         }
         .cv-hongo { width: 58px; height: auto; }
+        /* El sombrero va sobre .cv-mapa, que es --verde: fondo OSCURO. Por la
+           regla direccional le toca --naranja-claro, no --naranja. Con el
+           naranja oscuro daría 1.97:1 contra el verde y se perdería. */
+        .cv-hongo-sombrero { fill: var(--naranja-claro); }
         .cv-nodo-t {
           font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
           color: var(--papel); background: var(--tinta); padding: 3px 6px; white-space: nowrap;

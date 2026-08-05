@@ -5,7 +5,7 @@
     <a href="#top" class="brand">
       <svg fill="none" height="28" width="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <circle cx="7" cy="7" r="3" stroke="#16130F" stroke-width="2.5"></circle>
-        <circle cx="17" cy="17" r="3" stroke="#D9420B" stroke-width="2.5"></circle>
+        <circle class="marca-acento" cx="17" cy="17" r="3" stroke-width="2.5"></circle>
         <path d="M10 10L14 14" stroke="#16130F" stroke-linecap="round" stroke-width="2.5"></path>
       </svg>
       <span class="brand-t" translate="no">Mico<span class="brand-accent">Pay</span></span>
@@ -36,6 +36,10 @@
     display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
   }
   .brand { display: flex; align-items: center; gap: 10px; color: inherit; }
+  /* El acento del logo va por token, no por hex: el nav es fondo claro, así
+     que le toca --naranja. Antes estaba incrustado como #D9420B y se quedó
+     atrás cuando el naranja pasó a ser direccional. */
+  .marca-acento { stroke: var(--naranja); }
   .brand-t {
     font-family: var(--font-display); font-weight: 800; font-size: 20px;
     letter-spacing: -.02em; color: var(--tinta); text-transform: uppercase;

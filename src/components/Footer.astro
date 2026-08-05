@@ -7,7 +7,7 @@ const anio = new Date().getFullYear();
       <div class="brand">
         <svg fill="none" height="26" width="26" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <circle cx="7" cy="7" r="3" stroke="#16130F" stroke-width="2.5"></circle>
-          <circle cx="17" cy="17" r="3" stroke="#D9420B" stroke-width="2.5"></circle>
+          <circle class="marca-acento" cx="17" cy="17" r="3" stroke-width="2.5"></circle>
           <path d="M10 10L14 14" stroke="#16130F" stroke-linecap="round" stroke-width="2.5"></path>
         </svg>
         <span class="brand-t" translate="no">Mico<span class="brand-accent">Pay</span></span>
@@ -51,6 +51,9 @@ const anio = new Date().getFullYear();
   .footer { background: var(--papel); border-top: 2px solid var(--tinta); padding: 60px 24px 36px; }
   .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 48px; margin-bottom: 48px; }
   .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  /* Igual que en Nav.astro: el acento por token. El pie es --papel, fondo
+     claro, así que --naranja. */
+  .marca-acento { stroke: var(--naranja); }
   .brand-t { font-family: var(--font-display); font-weight: 800; font-size: 19px; text-transform: uppercase; font-variation-settings: "wdth" 112; }
   .brand-accent { color: var(--naranja); }
   .desc { color: var(--gris); font-size: 15px; max-width: 26em; }
