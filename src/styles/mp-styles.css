@@ -18,8 +18,11 @@
   --verde-suave: #e4ede6;
   --verde-borde: #bfd3c4;
 
-  /* Color — naranja de rótulo (efectivo, acción) */
-  --naranja: #d9420b;
+  /* Color — naranja de rótulo (efectivo, acción).
+     El naranja es direccional: --naranja va SOBRE CLARO (papel o fondo) y
+     --naranja-claro va SOBRE OSCURO. No son intercambiables; cada uno
+     reprueba contraste en el fondo del otro. */
+  --naranja: #c53c0a;
   --naranja-claro: #f2631f;
   --naranja-suave: #fbe8dd;
   --naranja-borde: #f0c3ab;
