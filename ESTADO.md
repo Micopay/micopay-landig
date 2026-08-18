@@ -3,8 +3,12 @@
 Reporte al **17 de agosto de 2026**. Sustituye al del 27 de julio, que quedó viejo:
 casi toda la auditoría SEO de aquel documento ya está resuelta en el código y desplegada.
 
-Cada punto de abajo se verificó contra el repo y contra `https://micopay.com.mx` en vivo.
-Lo que no se pudo comprobar sin tocar producción se dice explícitamente.
+Cada punto de abajo se verificó contra el repo, contra `https://micopay.com.mx` en vivo y
+contra `wrangler secret list`. Lo que no se pudo comprobar sin escribir en producción se dice
+explícitamente.
+
+Los cambios de la sección SEO se desplegaron el 17 ago (versión
+`13ea9968-02db-4fba-9ea1-f4fd7cc0dd35`) y están verificados en el sitio en vivo.
 
 ---
 
@@ -72,20 +76,27 @@ Hay un comentario en cada isla para que no se reintroduzca.
 | # | Qué | Estado hoy | Esfuerzo |
 |---|---|---|---|
 | 1 | Secreto `ADMIN_PASSWORD` | ✅ **Resuelto.** `/admin` responde 200 | — |
-| 2 | Turnstile | 🟡 **Parcial.** La site key ya es real (`0x4AAAAAAECVQ_UG_9RUXc9q`, modo managed), no la de prueba. Si `TURNSTILE_SECRET` está puesto **no se pudo verificar**: solo se comprueba enviando el formulario, y eso mete un lead basura en la D1 de producción | verificar |
-| 3 | Mailgun (cuenta nueva + DNS) | ❓ **Sin verificar**, por la misma razón. Si sigue sin configurar, los leads se guardan pero nadie se entera en el momento | cuenta + DNS |
+| 2 | Turnstile | ✅ **Resuelto.** Site key real (`0x4AAAAAAECVQ_UG_9RUXc9q`, modo managed) y `TURNSTILE_SECRET` presente en el Worker | — |
+| 3 | Mailgun | ✅ **Configurado.** `MAILGUN_API_KEY` presente, con `MAILGUN_DOMAIN` y `NOTIFY_TO` en `wrangler.jsonc` | — |
 
-> Cómo comprobar el punto 2 sin ensuciar la base: `wrangler secret list` sobre el Worker
-> dice si `TURNSTILE_SECRET` y `MAILGUN_API_KEY` existen, sin enviar nada.
-
-> Sobre Mailgun: el plan gratuito permite **un solo dominio verificado por cuenta**, y esa
-> cuota ya la ocupa `motelabs.com.mx`. Para `micopay.com.mx` hace falta una cuenta nueva
-> (gratis) o subir la de motelabs al plan Foundation ($35/mes, hasta 1 000 dominios).
-> El plan Basic ($15/mes) **no** sirve: sigue limitado a un dominio.
+> Los tres se confirmaron con `wrangler secret list`, que devuelve los **nombres** de los
+> secretos y nunca su contenido. Matiz importante: eso prueba que la clave **existe**, no que
+> sea válida — una clave de Mailgun vencida aparecería igual en la lista. Confirmar el envío
+> real sigue dependiendo de mandar el formulario, y eso escribe un lead de prueba en la D1.
 
 > Ojo con `turnstileOk()` en `worker.ts:74`: si el secreto falta, **devuelve `true`** y deja
-> pasar todo. Es un fallo abierto deliberado para no tumbar el formulario, pero significa
-> que "no ha llegado spam" no prueba que el anti-spam esté activo.
+> pasar todo. Hoy el secreto está puesto, así que el filtro sí actúa. Vale conservar la nota
+> porque el fallo es silencioso: si alguien borra el secreto, el formulario se queda sin
+> filtro y por fuera se ve idéntico.
+
+> **Secreto huérfano: `ANTHROPIC_API_KEY`.** Está cargado en el Worker y **no lo usa nada**.
+> No aparece en `interface Env`, no hay ninguna llamada de red en `admin.ts`, y los cinco
+> contadores del panel salen de un `COUNT(*)` en SQL, no de un modelo. Se buscó en todo el
+> historial de git y nunca existió código que lo consumiera, así que no es el resto de una
+> función retirada. Lo más probable es que se copiara el juego de secretos desde MoteLabs al
+> montar este Worker. Conviene quitarlo con `wrangler secret delete ANTHROPIC_API_KEY`, y
+> revocarlo también desde la consola de Anthropic si resulta ser exclusivo de MicoPay y no
+> una clave compartida con MoteLabs.
 
 ### Legales
 
@@ -177,8 +188,9 @@ idénticas al texto visible.
 
 ## 4. Pendientes de infraestructura, en orden
 
-1. `wrangler secret list` — confirmar `TURNSTILE_SECRET` y `MAILGUN_API_KEY` (§2.2, §2.3).
-2. Cuenta de Mailgun + DNS (MX, SPF, DKIM, DMARC) + `wrangler secret put MAILGUN_API_KEY`.
+1. Quitar el secreto huérfano `ANTHROPIC_API_KEY` (ver §2).
+2. Comprobar que Mailgun entrega de verdad: los secretos están, pero un envío real es lo
+   único que confirma la clave y el DNS (MX, SPF, DKIM, DMARC).
 3. Deploy automático en push (GitHub Actions). Hoy el despliegue es manual, y eso ayudó a que
    este documento y el sitio real se despegaran durante tres semanas.
 4. Sustituir el tipo de cambio fijo por un feed real y quitar la marca "OXXO" del ejemplo.
