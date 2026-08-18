@@ -2,6 +2,12 @@
    todavía: el objetivo en esta etapa es comunicar el producto, no listar
    proveedores en operación). Filtro client-side simple.
 
+   OJO: los nombres tienen que ser inventados. Aquí había un "OXXO Roma Norte"
+   con métricas fabricadas (1 024 operaciones, 99% de cumplimiento); atribuirle
+   cifras falsas a una marca real, y de paso sugerir que ya opera con nosotros,
+   es justo lo que no se puede hacer. Si hace falta un cuarto ejemplo, que sea
+   genérico.
+
    OJO: el <style> de una isla React NO tiene scope. Clases prefijadas con
    `pv-` para no pisar las de otros componentes. */
 import React from 'react';
@@ -14,7 +20,7 @@ const BASE = [
   { id: '1', name: 'Farmacia Guadalupe', km: 0.3, walk: 5, rate: 2.1, completion: 98, trades: 312, tier: 'Maestro', icon: 'storefront' },
   { id: '2', name: 'Tienda Don Pepe', km: 0.5, walk: 8, rate: 2.3, completion: 95, trades: 187, tier: 'Avanzado', icon: 'storefront' },
   { id: '3', name: 'Café El Parque', km: 0.8, walk: 12, rate: 2.5, completion: 92, trades: 89, tier: 'Inicial', icon: 'person' },
-  { id: '4', name: 'OXXO Roma Norte', km: 1.2, walk: 15, rate: 1.9, completion: 99, trades: 1024, tier: 'Maestro', icon: 'storefront' },
+  { id: '4', name: 'Abarrotes La Esquina', km: 1.2, walk: 15, rate: 1.9, completion: 99, trades: 1024, tier: 'Maestro', icon: 'storefront' },
 ];
 
 const FILTROS = [

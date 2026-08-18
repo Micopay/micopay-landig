@@ -1,7 +1,10 @@
 # Estado del proyecto — micopay.com.mx
 
-Reporte al **27 de julio de 2026**. Cubre qué quedó funcionando, qué falta, y una
-auditoría de SEO hecha sobre el sitio ya desplegado (no sobre el código local).
+Reporte al **17 de agosto de 2026**. Sustituye al del 27 de julio, que quedó viejo:
+casi toda la auditoría SEO de aquel documento ya está resuelta en el código y desplegada.
+
+Cada punto de abajo se verificó contra el repo y contra `https://micopay.com.mx` en vivo.
+Lo que no se pudo comprobar sin tocar producción se dice explícitamente.
 
 ---
 
@@ -32,7 +35,14 @@ Para proveedores con calculadora de ganancia · Formulario de lista de espera ·
 - Guarda nombre, correo, ciudad, interés, mensaje y UTMs en D1.
 - **Verificado end-to-end contra producción**: `POST /api/contacto` → `{"ok":true}` → fila en D1.
   (El lead de prueba se borró después.)
-- Panel `/admin` escrito, con contadores por tipo de interés. Hoy inaccesible (ver §2).
+- Panel `/admin` ✅ **accesible**: responde 200. Sin `ADMIN_PASSWORD` el código devuelve 404,
+  así que el secreto ya está configurado.
+
+### Páginas legales — ya existen
+
+`/privacy`, `/terms` y `/privacy-app` responden 200. Las tres llevan `noindex, follow`
+mediante el layout `Legal.astro`, y el sitemap las excluye por filtro en `astro.config.mjs`
+para no pedirle a Google que indexe lo que le decimos que no indexe.
 
 ### Decisiones de narrativa ya corregidas
 
@@ -59,36 +69,44 @@ Hay un comentario en cada isla para que no se reintroduzca.
 
 ### Bloqueantes
 
-| # | Qué | Consecuencia hoy | Esfuerzo |
+| # | Qué | Estado hoy | Esfuerzo |
 |---|---|---|---|
-| 1 | Secreto `ADMIN_PASSWORD` | `/admin` responde 404 a todos. **No se puede ver ningún lead que entre.** | 1 comando |
-| 2 | Turnstile (site key real + `TURNSTILE_SECRET`) | Sin anti-spam. La site key actual es la de prueba y el Worker **no bloquea** si falta el secreto. Solo queda el honeypot. | ~10 min |
-| 3 | Mailgun (cuenta nueva + DNS) | Cero correos: ni aviso interno ni acuse al prospecto. Los leads **sí se guardan**, pero nadie se entera en el momento. | cuenta + verificación DNS |
+| 1 | Secreto `ADMIN_PASSWORD` | ✅ **Resuelto.** `/admin` responde 200 | — |
+| 2 | Turnstile | 🟡 **Parcial.** La site key ya es real (`0x4AAAAAAECVQ_UG_9RUXc9q`, modo managed), no la de prueba. Si `TURNSTILE_SECRET` está puesto **no se pudo verificar**: solo se comprueba enviando el formulario, y eso mete un lead basura en la D1 de producción | verificar |
+| 3 | Mailgun (cuenta nueva + DNS) | ❓ **Sin verificar**, por la misma razón. Si sigue sin configurar, los leads se guardan pero nadie se entera en el momento | cuenta + DNS |
+
+> Cómo comprobar el punto 2 sin ensuciar la base: `wrangler secret list` sobre el Worker
+> dice si `TURNSTILE_SECRET` y `MAILGUN_API_KEY` existen, sin enviar nada.
 
 > Sobre Mailgun: el plan gratuito permite **un solo dominio verificado por cuenta**, y esa
 > cuota ya la ocupa `motelabs.com.mx`. Para `micopay.com.mx` hace falta una cuenta nueva
 > (gratis) o subir la de motelabs al plan Foundation ($35/mes, hasta 1 000 dominios).
 > El plan Basic ($15/mes) **no** sirve: sigue limitado a un dominio.
 
-### Legales — el formulario ya está vivo captando datos personales
+> Ojo con `turnstileOk()` en `worker.ts:74`: si el secreto falta, **devuelve `true`** y deja
+> pasar todo. Es un fallo abierto deliberado para no tumbar el formulario, pero significa
+> que "no ha llegado spam" no prueba que el anti-spam esté activo.
+
+### Legales
 
 | # | Qué | Estado |
 |---|---|---|
-| 4 | `/privacy` y `/terms` | **404.** El footer enlaza a páginas que no existen |
-| 5 | Aviso de privacidad (LFPDPPP) | No existe. Es obligatorio en México al captar nombre y correo |
+| 4 | `/privacy` y `/terms` | ✅ **Resuelto.** Ambos 200, más `/privacy-app` |
+| 5 | Aviso de privacidad (LFPDPPP) | ✅ **Resuelto.** `privacy.astro` cubre derechos ARCO y contacto |
 
 ### Contenido ficticio todavía visible
 
-| # | Qué | Nota |
+| # | Qué | Estado |
 |---|---|---|
-| 6 | Tipo de cambio `18.70` | Hardcodeado, no es precio en vivo. Aislado en `TIPO_CAMBIO` (`Conversor.jsx`) |
-| 7 | Proveedores de ejemplo | Está etiquetado como ilustrativo, pero **uno usa la marca real "OXXO"** con métricas inventadas. Conviene cambiarlo por un nombre genérico |
+| 6 | Tipo de cambio `18.70` | ❌ **Abierto.** `Conversor.jsx:11`, aislado en `TIPO_CAMBIO` y comentado como referencial |
+| 7 | Marca real "OXXO" en los proveedores de ejemplo | ✅ **Resuelto (17 ago).** Ahora es "Abarrotes La Esquina". Queda un comentario en `Proveedores.jsx` explicando por qué los nombres tienen que ser inventados |
 
 ---
 
 ## 3. Auditoría SEO
 
-Hecha el 27 jul 2026 contra `https://micopay.com.mx` en producción.
+Reverificada el 17 ago 2026 contra el repo y contra producción con `curl`.
+Importaba comprobar producción y no solo el código, porque el despliegue es manual (§4).
 
 ### Lo que ya está bien
 
@@ -97,86 +115,70 @@ Hecha el 27 jul 2026 contra `https://micopay.com.mx` en producción.
 | Idioma declarado | `<html lang="es-MX">` |
 | Title | `MicoPay — Tu dinero, cerca de ti` — único y descriptivo |
 | Meta description | Presente, 143 caracteres, dentro del rango útil |
-| Canonical | `https://micopay.com.mx/` |
-| Jerarquía de encabezados | Un solo H1, luego H2 → H3 **sin saltos** en las 8 secciones |
-| Contenido indexable sin JS | El HTML servido trae todo el texto, incluido el FAQ completo (11.5 KB) |
+| Canonical | `https://micopay.com.mx` |
+| Jerarquía de encabezados | Un solo H1, luego H2 → H3 **sin saltos** |
+| Contenido indexable sin JS | El HTML servido trae todo el texto, incluido el FAQ completo |
 | `robots.txt` | Correcto, con `Disallow: /admin` y referencia al sitemap |
-| Sitemap | `sitemap-index.xml` → `sitemap-0.xml`, generado automáticamente |
+| Sitemap | `sitemap-index.xml` → 200, generado automáticamente, sin las páginas legales |
 | Una sola URL canónica | `www` hace 301 al apex; no se parte la autoridad |
 | HTTPS y móvil | SSL activo, `viewport` correcto |
 
-### Hallazgos — prioridad alta
+### Hallazgos del 27 jul — ya resueltos
 
-**S1 · Sin Open Graph ni Twitter Card.**
-No hay una sola etiqueta `og:*` ni `twitter:*`. Al compartir el enlace en WhatsApp, X,
-LinkedIn o Slack sale sin imagen, sin título formateado y sin descripción. Para una landing
-cuyo único objetivo es que la compartan y captar registros, esto es lo más caro de la lista.
-Requiere además crear una imagen social (1200×630).
+| # | Hallazgo original | Cómo quedó |
+|---|---|---|
+| S1 | Sin Open Graph ni Twitter Card | ✅ OG completo (`type`, `url`, `title`, `description`, `site_name`, `locale`, `image`) más `twitter:card` en `summary_large_image`. `og.jpg` 1200×630 responde 200 |
+| S2 | Sin favicon | ✅ `favicon.svg` y `apple-touch-icon.png`, ambos declarados en el head |
+| S3 | Sin datos estructurados | ✅ Tres bloques `application/ld+json`: `Organization`, `WebSite` y `FAQPage` |
+| S4 | Enlaces rotos a `/terms` y `/privacy` | ✅ Ambos 200 (ver §2.4) |
+| S5 | Sin página 404 propia | ✅ `src/pages/404.astro`, con `noindex` |
+| S6 | Material Symbols sin `display` | ✅ Ya carga con `&display=block`; se acabó el destello de ligaduras en texto |
+| S7 | Canonical con barra vs sitemap sin barra | ✅ `trailingSlash: 'never'` y `build.format: 'file'` unifican ambos |
 
-**S2 · Sin favicon.**
-`/favicon.ico` → **404**, y cero etiquetas `rel="icon"` en el head. La pestaña sale en blanco
-y los marcadores no tienen ícono. El logo ya existe como SVG en línea; solo hay que
-exportarlo a `public/`.
+### Hallazgos abiertos
 
-**S3 · Sin datos estructurados (JSON-LD).**
-No hay `Organization`, `WebSite` ni `FAQPage`. El FAQ **ya está en el HTML servido** con seis
-preguntas y respuestas completas — es decir, califica para *rich results* de Google sin
-escribir contenido nuevo, solo el marcado. Es la mejora con mejor relación esfuerzo/retorno.
+**S8 · Las fuentes de Google bloquean el render.** 🟡 Mitigado a medias (17 ago)
+La hoja de Material Symbols ya no bloquea: carga con `media="print"` y un `onload` que la
+promueve a `all`, con `<noscript>` de respaldo. Sigue con `display=block`, así que mientras
+baja no se asoma el texto de la ligadura.
+**Falta** la de Archivo, que sí bloquea a propósito: es la tipografía del texto y cargarla
+tarde repinta la página entera. Cerrarlo del todo pide alojarla localmente — hay que meter
+los `.woff2` al repo y escribir el `@font-face`, decisión que no se tomó todavía.
 
-**S4 · Enlaces internos rotos.**
-El footer enlaza a `/terms` y `/privacy`; ambos devuelven **404**. Google los reporta como
-errores de rastreo y desperdicia presupuesto de rastreo. Se cruza con el punto legal §2.4.
+**S9 · Sin analítica.**
+Cero rastro de Cloudflare Web Analytics, `gtag` o equivalente, ni en el repo ni en el HTML
+servido. Es gratis y sin cookies, y hoy no hay forma de saber si la landing convierte.
 
-### Hallazgos — prioridad media
+**S10 · Una sola URL indexable.**
+Páginas dedicadas (`/proveedores`, `/como-funciona`) permitirían competir por más búsquedas.
 
-**S5 · Sin página 404 propia.**
-`wrangler.jsonc` declara `not_found_handling: "404-page"`, que espera un `404.html` en
-`dist/`, y no existe. Cualquier ruta inválida cae en una página en blanco del sistema.
+**S11 · Sin `hreflang`.**
+Relevante solo si se retoma el bilingüe ES/EN que tenía la landing anterior.
 
-**S6 · Los nombres de los íconos aparecen como texto al cargar.**
-La hoja de Material Symbols se pide **sin el parámetro `display`**:
+**S12 · `/favicon.ico` devolvía 404.** ✅ Resuelto (17 ago)
+`public/favicon.ico` generado desde `apple-touch-icon.png` (16/32/48 px, 4.5 KB) y declarado
+en el head antes del SVG, que los navegadores modernos siguen prefiriendo.
 
-```
-fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0
-```
-
-Sin `&display=block`, el navegador muestra el texto de la ligadura (`search`, `near_me`,
-`storefront`) hasta que la fuente termina de bajar. Se ve roto en la primera carga y golpea
-el CLS. La hoja de Manrope/Jakarta sí lleva `&display=swap`; a esta se le olvidó.
-
-**S7 · Inconsistencia canonical vs sitemap.**
-El canonical apunta a `https://micopay.com.mx/` (con barra) y el sitemap lista
-`https://micopay.com.mx` (sin barra). Es menor porque resuelven igual, pero conviene
-unificarlo para no mandar señales cruzadas.
-
-**S8 · Las fuentes de Google bloquean el render.**
-Dos hojas de estilo externas en el `<head>` antes de pintar. Ya hay `preconnect`, que ayuda,
-pero para mejorar el LCP lo correcto es alojar las fuentes localmente o cargarlas de forma
-asíncrona.
-
-### Hallazgos — prioridad baja
-
-| # | Punto |
-|---|---|
-| S9 | Sin analítica. Cloudflare Web Analytics es gratis y sin cookies |
-| S10 | Una sola URL indexable. Páginas dedicadas (`/proveedores`, `/como-funciona`) permitirían competir por más búsquedas |
-| S11 | Sin `hreflang`. Relevante solo si se retoma el bilingüe ES/EN que tenía la landing anterior |
+**S13 · El FAQ estaba duplicado a mano.** ✅ Resuelto (17 ago)
+Las 7 preguntas vivían dos veces, en `Faq.jsx` y en el `FAQPage` de `index.astro`. Ahora hay
+una sola fuente, `src/data/faqs.js`, que consumen los dos. Editar una respuesta ahí actualiza
+el acordeón y el marcado a la vez.
+Comprobado sobre el HTML ya compilado: las 7 preguntas y las 7 respuestas del JSON-LD son
+idénticas al texto visible.
 
 ### Orden sugerido
 
-1. **S2 + S6** — media hora, y arreglan cómo se *ve* el sitio al cargarlo y en la pestaña.
-2. **S1** — antes de cualquier campaña o de compartir el enlace en redes.
-3. **S3** — el FAQ ya está escrito; solo falta el marcado.
-4. **S4 + §2.4/2.5** — resuelve el enlace roto y el riesgo legal de un tirón.
-5. **S5, S7, S8**, luego el resto.
+1. **S9** — sin medición, ninguna otra mejora se puede evaluar. Es lo único que queda
+   con retorno claro y esfuerzo bajo.
+2. **Resto de S8** — alojar Archivo localmente, si se quiere apretar el LCP.
+3. **S10** — páginas dedicadas. Es trabajo de contenido, no técnico.
 
 ---
 
 ## 4. Pendientes de infraestructura, en orden
 
-1. `wrangler secret put ADMIN_PASSWORD` — para poder leer los leads.
-2. Widget de Turnstile + `wrangler secret put TURNSTILE_SECRET` — antes de que llegue spam.
-3. Aviso de privacidad y términos (§2.4, §2.5) — el formulario ya está captando datos.
-4. Cuenta de Mailgun + DNS (MX, SPF, DKIM, DMARC) + `wrangler secret put MAILGUN_API_KEY`.
-5. Deploy automático en push (GitHub Actions). Hoy el despliegue es manual.
-6. Sustituir el tipo de cambio fijo por un feed real y quitar la marca "OXXO" del ejemplo.
+1. `wrangler secret list` — confirmar `TURNSTILE_SECRET` y `MAILGUN_API_KEY` (§2.2, §2.3).
+2. Cuenta de Mailgun + DNS (MX, SPF, DKIM, DMARC) + `wrangler secret put MAILGUN_API_KEY`.
+3. Deploy automático en push (GitHub Actions). Hoy el despliegue es manual, y eso ayudó a que
+   este documento y el sitio real se despegaran durante tres semanas.
+4. Sustituir el tipo de cambio fijo por un feed real y quitar la marca "OXXO" del ejemplo.
