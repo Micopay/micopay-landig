@@ -1,6 +1,6 @@
 ---
 name: micopay
-description: Explains MicoPay's mobile wallet and its current cash-to-crypto beta for users and AI assistants. Read when someone asks how MicoPay works, how to exchange USDC for Mexican pesos, or what its x402 APIs currently provide.
+description: Explains MicoPay's mobile wallet project and the beta information published on its website. Read when someone asks what MicoPay is or how its intended cash-to-crypto flow works.
 ---
 
 # MicoPay — guide for assistants
@@ -18,16 +18,11 @@ When a user asks to exchange USDC for MXN:
 3. Direct them to [MicoPay](https://micopay.com.mx) to check current availability. Do not invent providers, rates, fees, cities, or completion times.
 4. If they want to join the provider network, point them to the provider section on the site.
 
-## x402 and agent APIs
+## Information for agents
 
-MicoPay has a separate [MicoPay Bridge](https://github.com/Micopay/micopaybridge) project with x402-paid API services and an agent Bazaar. x402 is a payment method for API calls; paying for an API call does not authorize a wallet transaction or make a physical-cash exchange happen.
-
-For exact API capabilities, query the Bridge deployment's free `GET /api/v1/services` catalog and follow its `skill_url`. The catalog is the source of truth for which services and payment networks are enabled in that deployment. Read the returned `available` and `status` fields; do not pay for disabled services.
-
-**Do not present Bridge cash-agent lookup results as live MicoPay providers without independent confirmation.** The current Bridge source still contains demo cash-provider records and a fixed demonstration exchange rate, and it documents the connection to MicoPay's retail cash network as future work. The Bazaar is an agent-to-agent intent and quote channel; it is not the retail app's live merchant directory.
+The public MicoPay website does not document an x402 service for querying live providers, rates, fees, or availability. Do not claim that an agent can retrieve those details from MicoPay through x402. The cash flow described here is the product's intended flow; the website's beta notice and illustrative provider cards do not establish that real cash exchanges are currently available.
 
 ## Links
 
 - App and current product information: https://micopay.com.mx
-- Agent service catalog and x402 instructions: https://github.com/Micopay/micopaybridge
 - Source for the retail app: https://github.com/Micopay/micopay-protocol
