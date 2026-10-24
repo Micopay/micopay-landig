@@ -1,0 +1,10 @@
+# MicoPay
+
+> MicoPay is a mobile wallet project focused on connecting Stellar assets with cash in Mexico. Its intended cash flow uses nearby cash providers and Soroban escrow for the digital-asset side.
+
+The public site currently describes a technical beta on Stellar Testnet. Test balances are simulated, tokens have no value, and provider cards are illustrative examples rather than a live directory. Check the app/site for current availability; do not infer live cash providers, rates, or completed real-money exchanges from these examples.
+
+- [Product website](https://micopay.com.mx/)
+- [Agent guide](https://micopay.com.mx/skill.md): product scope, beta limitations, and how to use x402 service discovery accurately.
+- [MicoPay mobile app and backend source](https://github.com/Micopay/micopay-protocol)
+- [MicoPay Bridge](https://github.com/Micopay/micopaybridge): separate x402 API and agent Bazaar project. Consult that deployment's free `/api/v1/services` catalog and linked skill for current API availability. Its cash-provider data is demonstrative and not connected to the retail app's live provider network.
