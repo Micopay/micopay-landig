@@ -1,5 +1,7 @@
 # micopay-web
 
+> **Estado:** Website. **Custodia:** no aplica; el sitio no maneja fondos ni llaves.
+
 Sitio de MicoPay (`micopay.com.mx`): landing + captación de leads.
 Astro + islas React, desplegado como Cloudflare Worker con static assets.
 
