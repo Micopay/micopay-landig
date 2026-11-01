@@ -33,4 +33,11 @@ const items = [
     color: var(--papel); background: var(--tinta);
     padding: 4px 9px; border-radius: var(--r-sm);
   }
+  @media (max-width: 760px) {
+    .barra-in { padding: 16px 24px; gap: 10px; }
+    .barra-t { width: 100%; text-align: center; }
+    .barra-items { justify-content: center; }
+    /* El titulo de la barra ya dice "proximamente" */
+    .barra-tag { display: none; }
+  }
 </style>

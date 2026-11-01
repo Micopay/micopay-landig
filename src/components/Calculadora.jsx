@@ -113,6 +113,22 @@ export default function Calculadora() {
         .cl-resultado-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gris-3); margin-bottom: 6px; }
         .cl-resultado-valor { font-family: var(--font-display); font-weight: 800; font-size: 40px; letter-spacing: -.03em; color: var(--naranja-claro); font-variation-settings: "wdth" 110; }
         .cl-resultado-sub { font-size: 13px; color: var(--gris-3); margin-top: 4px; }
+
+        @media (max-width: 760px) {
+          .cl-card { padding: 20px; box-shadow: var(--sombra); }
+          .cl-campo-row { gap: 12px; }
+          .cl-campo-l { white-space: normal; }
+          .cl-campo-v { white-space: nowrap; }
+          .cl-escala { font-size: 12px; }
+          .cl-resultado { padding: 18px; }
+          .cl-resultado-valor { font-size: clamp(26px, 9vw, 40px); white-space: nowrap; line-height: 1.2; }
+          /* El control mide 36px para el dedo; la barra visible sigue siendo delgada */
+          .cl-rango { height: 36px; background: transparent; border: 0; touch-action: pan-y; }
+          .cl-rango::-webkit-slider-runnable-track { height: 10px; background: var(--fondo); border: 2px solid var(--tinta); }
+          .cl-rango::-moz-range-track { height: 6px; background: var(--fondo); border: 2px solid var(--tinta); }
+          .cl-rango::-webkit-slider-thumb { width: 28px; height: 28px; margin-top: -11px; }
+          .cl-rango::-moz-range-thumb { width: 24px; height: 24px; }
+        }
       `}</style>
     </div>
   );
