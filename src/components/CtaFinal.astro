@@ -26,4 +26,10 @@
   .h2 { font-size: clamp(28px, 3.4vw, 40px); color: var(--papel); margin-bottom: 14px; }
   .cta-p { color: var(--gris-3); font-size: 17px; }
   .cta-btn { position: relative; }
+  @media (max-width: 760px) {
+    .cta-wrap { padding: 48px 24px 56px; }
+    .cta-caja { padding: 28px 22px; gap: 22px; box-shadow: 6px 6px 0 var(--naranja); }
+    .cta-p { font-size: 16px; }
+    .cta-btn { width: 100%; justify-content: center; }
+  }
 </style>

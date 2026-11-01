@@ -10,8 +10,9 @@
     <span class="ms">science</span>
     <span>
       <strong>Ya estamos en pruebas.</strong>{' '}
-      Es una beta en red de prueba: no se mueve dinero real y los tokens no tienen valor.{' '}
-      <a href="#probar">Cómo probar la app</a>
+      <span class="solo-pc">Es una beta en red de prueba: no se mueve dinero real y los tokens no tienen valor.{' '}</span>
+      <span class="solo-tel">Red de prueba, sin dinero real.{' '}</span>
+      <a href="#probar"><span class="solo-pc">Cómo probar la app</span><span class="solo-tel">Cómo probar</span></a>
     </span>
   </div>
 </div>
@@ -23,7 +24,11 @@
     gap: 9px; flex-wrap: wrap; text-align: center;
   }
   .aviso-beta-in .ms { font-size: 18px; color: #8a6417; flex-shrink: 0; }
-  .aviso-beta-in span:last-child { font-size: 13.5px; font-weight: 600; color: #8a6417; }
+  .aviso-beta-in > span:last-child { font-size: 13.5px; font-weight: 600; color: #8a6417; }
   .aviso-beta-in strong { font-weight: 800; }
   .aviso-beta-in a { color: inherit; font-weight: 800; text-decoration: underline; }
+  @media (max-width: 760px) {
+    .aviso-beta-in { padding: 8px 24px; flex-wrap: nowrap; justify-content: flex-start; text-align: left; }
+    .aviso-beta-in > span:last-child { font-size: 13px; line-height: 1.4; }
+  }
 </style>

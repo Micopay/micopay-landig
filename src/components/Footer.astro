@@ -21,7 +21,7 @@ const anio = new Date().getFullYear();
         <a href="#proveedores">Proveedores</a>
         <a href="#seguridad">Seguridad</a>
         <a href="#lead">Registrarme</a>
-        <a href="https://app.micopay.com.mx">Abrir app</a>
+        <a href="https://app.micopay.com.mx" class="solo-pc">Abrir app</a>
       </div>
     </div>
     <div>
@@ -68,4 +68,18 @@ const anio = new Date().getFullYear();
   }
   .creditos a { color: var(--verde); font-weight: 700; }
   .creditos a:hover { color: var(--verde-claro); }
+
+  @media (max-width: 760px) {
+    /* El .container ya da el margen lateral; con el del pie quedaba doble */
+    .footer { padding: 40px 0 28px; }
+    .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 20px; margin-bottom: 28px; }
+    .footer-grid > div:first-child { grid-column: 1 / -1; }
+    /* Producto ocupa la columna izquierda; Empresa y Legal se apilan a su lado */
+    .footer-grid > div:nth-child(2) { grid-row: span 2; }
+    .footer-grid > div:nth-child(4) { grid-column: 2; }
+    .col-t { margin-bottom: 6px; }
+    .col-links { gap: 0; }
+    .col-links a { display: flex; align-items: center; min-height: 44px; }
+    .footer-bottom { padding-top: 18px; gap: 8px; flex-direction: column; }
+  }
 </style>

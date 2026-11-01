@@ -42,4 +42,11 @@ const puntos = [
   .punto { display: flex; gap: 12px; align-items: flex-start; }
   .punto .ms { color: var(--verde-claro); font-size: 20px; margin-top: 2px; }
   .punto span:last-child { color: #35505c; }
+
+  @media (max-width: 760px) {
+    .grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+    .intro-p { margin-bottom: 22px; }
+    .lista { gap: 10px; margin-bottom: 24px; }
+    .btn { width: 100%; justify-content: center; }
+  }
 </style>

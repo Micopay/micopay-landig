@@ -60,6 +60,8 @@ export default function Contact() {
         widgetId.current = window.turnstile.render(captchaRef.current, {
           sitekey: TURNSTILE_SITE_KEY,
           theme: 'light',
+          // El widget normal mide 300px fijos y no cabe en telefonos angostos.
+          size: captchaRef.current.offsetWidth < 300 ? 'compact' : 'normal',
           callback: (t) => setCaptchaToken(t),
           'expired-callback': () => setCaptchaToken(''),
           'error-callback': () => setCaptchaRoto(true),
@@ -182,6 +184,7 @@ export default function Contact() {
                     onChange={(e) => setNombre(e.target.value)}
                     onBlur={() => setTouched((t) => ({ ...t, nombre: 1 }))}
                     placeholder="tu nombre"
+                    autoComplete="name"
                   />
                   {touched.nombre && errores.nombre && <span className="ct-err">{errores.nombre}</span>}
                 </div>
@@ -193,6 +196,9 @@ export default function Contact() {
                     onChange={(e) => setEmail(e.target.value)}
                     onBlur={() => setTouched((t) => ({ ...t, email: 1 }))}
                     placeholder="tu@correo.com"
+                    inputMode="email"
+                    autoComplete="email"
+                    autoCapitalize="none"
                   />
                   {touched.email && errores.email && <span className="ct-err">{errores.email}</span>}
                 </div>
@@ -322,6 +328,19 @@ export default function Contact() {
 
         @media (max-width: 880px) { .ct-grid { grid-template-columns: 1fr; } }
         @media (max-width: 520px) { .ct-fila-2 { grid-template-columns: 1fr; } }
+        @media (max-width: 760px) {
+          .ct-section { padding: 56px 0; }
+          .ct-grid { grid-template-columns: minmax(0, 1fr); }
+          /* El cintillo repetia lo mismo que la insignia de arriba */
+          .ct-section .label { display: none; }
+          .ct-form, .ct-gracias { box-shadow: var(--sombra); gap: 16px; }
+          /* Con menos de 16px iOS hace zoom al enfocar el campo */
+          .ct-input { font-size: 16px; }
+          .ct-opciones { flex-direction: column; }
+          .ct-pill { width: 100%; justify-content: flex-start; }
+          .ct-form .btn { justify-content: center; }
+          .ct-campo-l, .ct-legal { font-size: 13px; }
+        }
       `}</style>
     </section>
   );

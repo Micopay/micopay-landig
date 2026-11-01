@@ -171,6 +171,16 @@ export default function Conversor() {
         .cv-resumen-derecha { text-align: right; }
         .cv-resumen-comision { font-size: 16px; font-weight: 700; color: var(--papel); }
         .cv-nota { margin: 12px 2px 0; font-size: 11.5px; line-height: 1.5; color: var(--gris); }
+
+        @media (max-width: 760px) {
+          .cv-card { box-shadow: var(--sombra); }
+          .cv-mapa { height: 220px; }
+          .cv-nodo-t { font-size: 10px; }
+          .cv-input { font-size: 24px; }
+          .cv-resumen-valor { font-size: clamp(22px, 7vw, 30px); }
+          .cv-resumen { gap: 12px; }
+          .cv-nota { font-size: 12.5px; }
+        }
       `}</style>
     </div>
   );

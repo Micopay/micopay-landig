@@ -24,6 +24,11 @@ const pasos = [
       La app web ya está abierta en red de prueba. Es una beta y puede fallar. Tus comentarios nos ayudan a dejarla lista.
     </p>
 
+    <p class="aviso-tel solo-tel">
+      <strong>Estás en tu teléfono.</strong> Por ahora la app web se usa en computadora con
+      Varial. Copia el enlace y ábrelo ahí, o déjanos tu correo.
+    </p>
+
     <ol class="pasos">
       {pasos.map((p, i) => (
         <li class="paso">
@@ -35,11 +40,17 @@ const pasos = [
     </ol>
 
     <div class="acciones">
-      <a href="https://app.micopay.com.mx" class="btn btn--primary">
+      <a href="https://app.micopay.com.mx" class="btn btn--primary solo-pc">
         <span class="ms">open_in_new</span>Abrir la app
       </a>
-      <a href="https://varialwallet.com" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
+      <a href="https://varialwallet.com" target="_blank" rel="noopener noreferrer" class="btn btn--ghost solo-pc">
         Instalar Varial<span class="ms">download</span>
+      </a>
+      <button type="button" class="btn btn--primary solo-tel" id="copiar-enlace">
+        <span class="ms">content_copy</span><span id="copiar-t">Copiar enlace de la app</span>
+      </button>
+      <a href="#lead" class="btn btn--ghost solo-tel">
+        Avísame por correo<span class="ms">near_me</span>
       </a>
     </div>
 
@@ -77,5 +88,34 @@ const pasos = [
   .cuidado { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--gris); max-width: 46em; }
   .cuidado .ms { font-size: 20px; color: var(--naranja); flex-shrink: 0; }
   .cuidado strong { color: var(--tinta); }
-  @media (max-width: 700px) { .probar { scroll-margin-top: 230px; } }
+
+  .aviso-tel {
+    background: var(--naranja-suave); border: var(--borde); border-radius: var(--r-sm);
+    padding: 14px 16px; font-size: 15px; color: var(--tinta); margin-bottom: 20px;
+  }
+  @media (max-width: 760px) {
+    .probar { padding: 48px 0; }
+    .intro { font-size: 16px; margin-bottom: 20px; }
+    .pasos { gap: 12px; margin-bottom: 22px; }
+    /* Numero y titulo en la misma linea: tres tarjetas caben en una pantalla */
+    .paso { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 12px; align-items: center; padding: 16px; }
+    .num { margin-bottom: 0; }
+    .paso h3 { margin-bottom: 0; }
+    .paso p { grid-column: 1 / -1; margin-top: 8px; }
+    .acciones { gap: 12px; }
+    .acciones .btn { width: 100%; justify-content: center; }
+  }
 </style>
+
+<script>
+  const copiar = document.getElementById('copiar-enlace');
+  const texto = document.getElementById('copiar-t');
+  copiar?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText('https://app.micopay.com.mx');
+      if (texto) texto.textContent = 'Enlace copiado';
+    } catch {
+      if (texto) texto.textContent = 'app.micopay.com.mx';
+    }
+  });
+</script>

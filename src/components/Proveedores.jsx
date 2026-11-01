@@ -38,6 +38,14 @@ function mxn(n) {
 
 export default function Proveedores() {
   const [filtro, setFiltro] = React.useState('todos');
+  const carrusel = React.useRef(null);
+
+  /* En el telefono la lista es un carrusel: al cambiar el orden hay que volver
+     al inicio o el primero del filtro queda fuera de vista. Va despues de
+     pintar, porque antes el navegador conserva la posicion de las tarjetas. */
+  React.useEffect(() => {
+    if (carrusel.current) carrusel.current.scrollLeft = 0;
+  }, [filtro]);
 
   const ordenados = React.useMemo(() => {
     const copia = BASE.slice();
@@ -63,7 +71,7 @@ export default function Proveedores() {
         ))}
       </div>
 
-      <div className="pv-grid">
+      <div className="pv-grid" ref={carrusel}>
         {ordenados.map((m) => {
           const payout = USDC_EJEMPLO * TIPO_CAMBIO * (1 - (m.rate + COMISION) / 100);
           return (
@@ -128,6 +136,21 @@ export default function Proveedores() {
         .pv-datos-k { color: var(--gris); font-weight: 600; }
         .pv-pie { padding: 9px 14px; border-top: 2px solid var(--tinta); background: var(--fondo); }
         .pv-pie-t { font-size: 11.5px; color: var(--gris); font-weight: 600; }
+
+        @media (max-width: 760px) {
+          .pv-filtros { margin-bottom: 20px; }
+          .pv-grid {
+            display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory;
+            margin: 0 -24px; padding: 0 24px 10px; scroll-padding: 0 24px; scrollbar-width: none;
+          }
+          .pv-grid::-webkit-scrollbar { display: none; }
+          /* La siguiente tarjeta asoma: es la pista de que hay mas */
+          .pv-card { flex: 0 0 min(82%, 300px); scroll-snap-align: start; }
+          .pv-badge-tier { font-size: 11px; }
+          .pv-meta { font-size: 13px; }
+          .pv-recibes-label { font-size: 11px; }
+          .pv-pie-t { font-size: 12.5px; }
+        }
 
         @media (hover: hover) and (pointer: fine) {
           .pv-card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--tinta); }

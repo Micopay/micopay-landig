@@ -50,7 +50,7 @@ import Conversor from './Conversor.jsx';
 
 <style>
   .hero { padding: 72px 0 88px; }
-  .hero-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 64px; align-items: center; }
+  .hero-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 64px; align-items: center; }
 
   .badge {
     display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 10px;
@@ -72,4 +72,18 @@ import Conversor from './Conversor.jsx';
   .stats { display: flex; gap: 28px; padding-top: 24px; border-top: 2px solid var(--tinta); }
   .stat-n { font-family: var(--font-display); font-weight: 800; font-size: 21px; text-transform: uppercase; font-variation-settings: "wdth" 105; }
   .stat-t { font-size: 13px; color: var(--gris); font-weight: 600; }
+
+  @media (max-width: 760px) {
+    .hero { padding: 36px 0 56px; }
+    .hero-grid { gap: 40px; }
+    .badge { margin-bottom: 18px; }
+    .titulo { font-size: clamp(32px, 10.8vw, 56px); margin-bottom: 16px; }
+    .lead { font-size: 17px; margin-bottom: 24px; }
+    .cta-row { margin-bottom: 28px; gap: 12px; }
+    .cta-row .btn { width: 100%; justify-content: center; }
+    /* Tres columnas no caben: cada dato es un renglon, nombre y detalle */
+    .stats { display: grid; gap: 12px; padding-top: 18px; }
+    .stats > div { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px; align-items: baseline; }
+    .stat-n { font-size: 16px; }
+  }
 </style>

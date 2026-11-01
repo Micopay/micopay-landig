@@ -142,6 +142,21 @@ h3 { font-variation-settings: "wdth" 105; text-transform: none; letter-spacing: 
   -webkit-font-feature-settings: "liga"; -webkit-font-smoothing: antialiased;
 }
 
+/* Visibles solo en uno de los dos mundos: la app web hoy se usa en computadora,
+   asi que al telefono no se le ofrece abrirla. */
+.solo-tel { display: none !important; }
+
+@media (max-width: 760px) {
+  html { scroll-padding-top: 76px; }
+  .solo-pc { display: none !important; }
+  .solo-tel { display: revert !important; }
+  .btn.solo-tel { display: inline-flex !important; }
+  .nav-links a.solo-tel { display: flex !important; }
+  .section { padding: 56px 0; }
+  .card { padding: 20px; }
+  .pill { min-height: 44px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
