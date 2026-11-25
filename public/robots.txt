@@ -3,3 +3,4 @@ Allow: /
 Disallow: /admin
 
 Sitemap: https://micopay.com.mx/sitemap-index.xml
+# Agent guide: https://micopay.com.mx/skill.md
